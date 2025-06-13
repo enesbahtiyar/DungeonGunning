@@ -2,8 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - collisionTilemap
+  - groundTilemap
+  - minimapTilemap
+  - decoration1Tilemap
+  - decoration2Tilemap
+  - frontTilemap
   layers:
   - Default
   - TransparentFX
@@ -11,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - PlayerWeapon
   - 
   - 
   - 
@@ -41,3 +47,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Instances
+    uniqueID: 4210134281
+    locked: 0
+  m_RenderingLayers:
+  - Default
