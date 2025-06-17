@@ -2,140 +2,140 @@ using UnityEngine;
 
 public class OsmanHareket : MonoBehaviour
 {
-    [Header("Hareket Ayarlari")]
-    [SerializeField] private float hareketHizi = 5f;
-    [SerializeField] public float donusHizi = 10f;
+    [Header("Movement Settings")]
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] public float rotationSpeed = 10f;
     
-    [Header("Kamera Ayarlari")]
-    [SerializeField] public float kameraTakipHizi = 5f;
-    [SerializeField] public Vector3 kameraOffset = new Vector3(0, 0, -10f);
+    [Header("Camera Settings")]
+    [SerializeField] public float cameraFollowSpeed = 5f;
+    [SerializeField] public Vector3 cameraOffset = new Vector3(0, 0, -10f);
 
-    private Rigidbody2D fizik;
-    private Camera anaKamera;
+    private Rigidbody2D rb;
+    private Camera mainCamera;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
-    private Vector2 hareketYonu;
-    private Vector2 fareKonumu;
-    private string sonOynatilanAnimasyon ;
+    private Vector2 moveDirection;
+    private Vector2 mousePosition;
+    private string lastPlayedAnimation;
 
     void Start()
     {
-        fizik = GetComponent<Rigidbody2D>();
-        anaKamera = Camera.main;
+        rb = GetComponent<Rigidbody2D>();
+        mainCamera = Camera.main;
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         
-        OynatAnimasyon("BekleAsagi");
+        PlayAnimation("IdleDown");
     }
 
     void Update()
     {
-        float yatayGiris = Input.GetAxisRaw("Horizontal");
-        float dikeyGiris = Input.GetAxisRaw("Vertical");
-        hareketYonu = new Vector2(yatayGiris, dikeyGiris).normalized;
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
+        moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
 
-        fareKonumu = anaKamera.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         
-        AnimasyonlariGuncelle();
+        UpdateAnimations();
     }
 
     void FixedUpdate()
     {
-        KarakteriHareketEttir();
+        MoveCharacter();
     }
     
     void LateUpdate()
     {
-        KamerayiTakipEttir();
+        FollowCamera();
     }
 
-    private void KarakteriHareketEttir()
+    private void MoveCharacter()
     {
-        fizik.linearVelocity = hareketYonu * hareketHizi;
+        rb.linearVelocity = moveDirection * moveSpeed;
     }
     
-    private void KamerayiTakipEttir()
+    private void FollowCamera()
     {
-        if (anaKamera == null)
+        if (mainCamera == null)
             return;
             
-        Vector3 hedefPozisyon = transform.position + kameraOffset;
+        Vector3 targetPosition = transform.position + cameraOffset;
         
-        anaKamera.transform.position = Vector3.Lerp(
-            anaKamera.transform.position, 
-            hedefPozisyon, 
-            kameraTakipHizi * Time.deltaTime
+        mainCamera.transform.position = Vector3.Lerp(
+            mainCamera.transform.position, 
+            targetPosition, 
+            cameraFollowSpeed * Time.deltaTime
         );
     }
     
-    private void AnimasyonlariGuncelle()
+    private void UpdateAnimations()
     {
         if (animator == null)
             return;
             
-        float hiz = hareketYonu.magnitude;
+        float speed = moveDirection.magnitude;
         
-        Vector2 bakisYonu = fareKonumu - (Vector2)transform.position;
-        float aci = Mathf.Atan2(bakisYonu.y, bakisYonu.x) * Mathf.Rad2Deg;
+        Vector2 lookDirection = mousePosition - (Vector2)transform.position;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         
-        if (aci < 0) aci += 360;
+        if (angle < 0) angle += 360;
         
-        if (hiz < 0.1f)
+        if (speed < 0.1f)
         {
-            if (aci >= 315 || aci < 45)
+            if (angle >= 315 || angle < 45)
             {
-                OynatAnimasyon("BekleSag");
+                PlayAnimation("IdleRight");
                 spriteRenderer.flipX = false;
             }
-            else if (aci >= 45 && aci < 135)
+            else if (angle >= 45 && angle < 135)
             {
-                OynatAnimasyon("BekleYukari");
+                PlayAnimation("IdleUp");
                 spriteRenderer.flipX = false;
             }
-            else if (aci >= 135 && aci < 225)
+            else if (angle >= 135 && angle < 225)
             {
-                OynatAnimasyon("BekleSag");
+                PlayAnimation("IdleRight");
                 spriteRenderer.flipX = true;
             }
             else
             {
-                OynatAnimasyon("BekleAsagi");
+                PlayAnimation("IdleDown");
                 spriteRenderer.flipX = false;
             }
         }
         else
         {
-            if (aci >= 315 || aci < 45)
+            if (angle >= 315 || angle < 45)
             {
-                OynatAnimasyon("YuruSag");
+                PlayAnimation("WalkRight");
                 spriteRenderer.flipX = false;
             }
-            else if (aci >= 45 && aci < 135)
+            else if (angle >= 45 && angle < 135)
             {
-                OynatAnimasyon("YuruYukari");
+                PlayAnimation("WalkUp");
                 spriteRenderer.flipX = false;
             }
-            else if (aci >= 135 && aci < 225)
+            else if (angle >= 135 && angle < 225)
             {
-                OynatAnimasyon("YuruSag");
+                PlayAnimation("WalkRight");
                 spriteRenderer.flipX = true;
             }
             else
             {
-                OynatAnimasyon("YuruAsagi");
+                PlayAnimation("WalkDown");
                 spriteRenderer.flipX = false;
             }
         }
     }
     
-    private void OynatAnimasyon(string animasyonAdi)
+    private void PlayAnimation(string animationName)
     {
-        if (sonOynatilanAnimasyon == animasyonAdi)
+        if (lastPlayedAnimation == animationName)
             return;
             
-        animator.Play(animasyonAdi);
+        animator.Play(animationName);
         
-        sonOynatilanAnimasyon = animasyonAdi;
+        lastPlayedAnimation = animationName;
     }
 }
