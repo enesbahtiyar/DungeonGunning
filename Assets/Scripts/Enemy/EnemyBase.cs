@@ -109,6 +109,7 @@ public class EnemyBase : MonoBehaviour
         //Death animation?
         //Coin drop or exp reward?
         //ölünce hala hasar alma animasyonu tetiklenebiliyor fixle**************************************************************
+        animator.SetTrigger("isDead");
         Debug.Log(gameObject.name + " died");
         Destroy(gameObject,3);
     }
@@ -123,7 +124,6 @@ public class EnemyBase : MonoBehaviour
         animator.SetTrigger("isTakingDamage");
         if (currentHealth <= 0)
         {
-        animator.SetTrigger("isDead");
             ChangeEnemyState(EnemyState.die);
         }
     }
