@@ -19,6 +19,8 @@ public class OsmanHareket : MonoBehaviour
     private Vector2 mousePosition;
     private string lastPlayedAnimation;
 
+    [SerializeField]private BackgroundScroller backgroundScroller;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,6 +55,7 @@ public class OsmanHareket : MonoBehaviour
     private void MoveCharacter()
     {
         rb.linearVelocity = moveDirection * moveSpeed;
+
     }
     
     private void FollowCamera()
@@ -67,6 +70,10 @@ public class OsmanHareket : MonoBehaviour
             targetPosition, 
             cameraFollowSpeed * Time.deltaTime
         );
+        if (moveDirection != Vector2.zero)
+        {
+            backgroundScroller.ScrollBackGround(transform);
+        }
     }
     
     private void UpdateAnimations()

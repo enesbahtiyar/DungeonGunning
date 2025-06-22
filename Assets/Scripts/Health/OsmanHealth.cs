@@ -13,15 +13,17 @@ public class OsmanHealth : MonoBehaviour
     public float health;
     public float maxHealth;
 
-    public AudioClip damageSound; 
-    public AudioClip deathSound;  
+    public AudioClip damageSound;
+    public AudioClip deathSound;
 
     public Image healthImage;
     public TextMeshProUGUI healthText;
 
+    private EnemyBase enemyBase;
     void Start()
     {
         health = maxHealth;
+        enemyBase = GetComponent<EnemyBase>();
     }
 
     void Update()
@@ -50,10 +52,13 @@ public class OsmanHealth : MonoBehaviour
         }
 
         health = Mathf.Max(health - amount, 0);
-        
         if (health <= 0)
         {
             OnDeath();
+        }
+        else
+        {
+            enemyBase.TakeDamage();
         }
     }
 
@@ -67,7 +72,7 @@ public class OsmanHealth : MonoBehaviour
         if (entityType == EntityType.AI)
         {
             //Destroy(gameObject);
-            GetComponent<EnemyBase>().ChangeEnemyState(EnemyBase.EnemyState.die);
+            enemyBase.ChangeEnemyState(EnemyBase.EnemyState.die);
             //isterseniz enemy ölünce burada daha farklı yapılacakları yazabiliriz animasyon hariç.
         }
         else if (entityType == EntityType.Player)

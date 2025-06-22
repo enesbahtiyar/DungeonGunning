@@ -28,12 +28,17 @@ public class OsmanBullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // targetLayer kontrolü eklendi
-        if (((1 << other.gameObject.layer) & targetLayer.value) == 0)
-            return;
+        //if (((1 << other.gameObject.layer) & targetLayer.value) == 0)
+        //    return;
 
-        OsmanHealth health = other.GetComponent<OsmanHealth>();
+        //OsmanHealth health = other.GetComponent<OsmanHealth>();
         
-        if (health != null && health.entityType == EntityType.AI)
+        //if (health != null && health.entityType == EntityType.AI)
+        //{
+        //    health.DecreaseHealth(damage);
+        //    Destroy(gameObject);
+        //}
+        if(other.gameObject.TryGetComponent<OsmanHealth>(out OsmanHealth health))
         {
             health.DecreaseHealth(damage);
             Destroy(gameObject);

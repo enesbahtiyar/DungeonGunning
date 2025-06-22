@@ -12,8 +12,9 @@ public class EnemyBase : MonoBehaviour
     private float nextAttackTime;
     public GameObject player;
     private SpriteRenderer spriteRenderer;
-    private bool isDead=false;
+    private bool isDead = false;
     private bool playerInHitRange;
+    private float baseMovementSpeed;
 
     public enum EnemyState
     {
@@ -25,6 +26,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] EnemyState state;
     public virtual void Start()
     {
+        baseMovementSpeed = movementSpeed;
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         state = EnemyState.chasing;
@@ -35,12 +37,8 @@ public class EnemyBase : MonoBehaviour
     {
         if (!isDead)
         {
-        LookToPlayer();
+            LookToPlayer();
             playerInHitRange = Vector2.Distance(player.transform.position, transform.position) < hitRange;
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            TakeDamage(Random.Range(1, 10));
         }
         switch (state)
         {
@@ -62,7 +60,7 @@ public class EnemyBase : MonoBehaviour
     }
     public virtual void Idle()
     {
-        if(player==null)
+        if (player == null)
         {
             animator.SetTrigger("isIdle");
         }
@@ -108,24 +106,19 @@ public class EnemyBase : MonoBehaviour
     {
         //Death animation?
         //Coin drop or exp reward?
-        //ölünce hala hasar alma animasyonu tetiklenebiliyor fixle**************************************************************
         animator.SetTrigger("isDead");
         Debug.Log(gameObject.name + " died");
-        Destroy(gameObject,3);
+        Destroy(gameObject, 3);
     }
     public virtual void ChangeEnemyState(EnemyState state)
     {
         if (this.state == state) return;
         this.state = state;
     }
-    public void TakeDamage(float damage)
+    public void TakeDamage()
     {
-        currentHealth -= damage;
         animator.SetTrigger("isTakingDamage");
-        if (currentHealth <= 0)
-        {
-            ChangeEnemyState(EnemyState.die);
-        }
+        StartCoroutine(StaggerEffect());
     }
     public void HitToPlayer()
     {
@@ -137,5 +130,12 @@ public class EnemyBase : MonoBehaviour
     private void LookToPlayer()
     {
         spriteRenderer.flipX = player.transform.position.x > transform.position.x;
+    }
+
+    private IEnumerator StaggerEffect()
+    {
+        movementSpeed = 0;
+        yield return new WaitForSeconds(0.5f);
+        movementSpeed = baseMovementSpeed;
     }
 }
