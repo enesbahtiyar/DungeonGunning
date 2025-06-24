@@ -18,8 +18,7 @@ public class OsmanHareket : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 mousePosition;
     private string lastPlayedAnimation;
-
-    [SerializeField]private BackgroundScroller backgroundScroller;
+    // [SerializeField]private BackgroundScroller backgroundScroller;
 
     void Start()
     {
@@ -70,10 +69,10 @@ public class OsmanHareket : MonoBehaviour
             targetPosition, 
             cameraFollowSpeed * Time.deltaTime
         );
-        if (moveDirection != Vector2.zero)
-        {
-            backgroundScroller.ScrollBackGround(transform);
-        }
+        // if (moveDirection != Vector2.zero)
+        // {
+        //     backgroundScroller.ScrollBackGround(transform);
+        // }
     }
     
     private void UpdateAnimations()
@@ -145,4 +144,6 @@ public class OsmanHareket : MonoBehaviour
         
         lastPlayedAnimation = animationName;
     }
+    
+
 }

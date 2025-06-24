@@ -78,6 +78,7 @@ public class OsmanHealth : MonoBehaviour
         else if (entityType == EntityType.Player)
         {
             //buraya da player ölünce yapılacak işlemler yazarız
+            Debug.Log("Player has died.");
         }
     }
 }
