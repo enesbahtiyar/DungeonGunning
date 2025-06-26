@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+
 [System.Serializable]
 public class Weapon
 {
