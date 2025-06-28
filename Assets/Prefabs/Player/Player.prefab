@@ -608,17 +608,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.00040000677, y: -0.41304386}
+  m_Offset: {x: -0.0052864105, y: -0.33912015}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.5625}
+    oldSize: {x: 0.5625, y: 0.78125}
     newSize: {x: 0.28125, y: 0.390625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.74816227}
+  m_Size: {x: 0.3290005, y: 0.11696792}
   m_EdgeRadius: 0
 --- !u!60 &2059054704113649411
 PolygonCollider2D:
@@ -658,7 +658,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.5625}
+    oldSize: {x: 0.5625, y: 0.78125}
     newSize: {x: 0.28125, y: 0.390625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -666,24 +666,24 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.4602457, y: -0.26363003}
-      - {x: 0.44413587, y: -0.090663224}
-      - {x: 0.37094, y: -0.042212978}
-      - {x: 0.4390978, y: -0.044699132}
-      - {x: 0.50674963, y: 0.22169471}
-      - {x: 0.5130456, y: 0.34460443}
-      - {x: 0.19612762, y: 0.7055612}
-      - {x: 0.064216256, y: 0.74634576}
-      - {x: -0.06757292, y: 0.722575}
-      - {x: -0.45659122, y: 0.47919008}
-      - {x: -0.5010018, y: 0.23169905}
-      - {x: -0.44367275, y: -0.03432092}
-      - {x: -0.4421393, y: -0.25627896}
-      - {x: -0.44061756, y: -0.46359766}
-      - {x: -0.31165522, y: -0.60031414}
-      - {x: 0.31165537, y: -0.5938924}
-      - {x: 0.43858948, y: -0.4698788}
-      - {x: 0.4571067, y: -0.36525375}
+    - - {x: 0.25269076, y: 0.09745869}
+      - {x: 0.26785627, y: 0.1510103}
+      - {x: 0.28564343, y: 0.14259623}
+      - {x: 0.25713173, y: 0.20550406}
+      - {x: 0.2224277, y: 0.26718622}
+      - {x: 0.16048649, y: 0.3218587}
+      - {x: 0.15632257, y: 0.31888348}
+      - {x: 0.09264845, y: 0.37104094}
+      - {x: -0.047670364, y: 0.36148626}
+      - {x: -0.24903628, y: 0.23467329}
+      - {x: -0.21667993, y: 0.0013983548}
+      - {x: -0.22190173, y: -0.2162869}
+      - {x: -0.1350717, y: -0.39559662}
+      - {x: 0.13086933, y: -0.39536047}
+      - {x: 0.21718341, y: -0.23069572}
+      - {x: 0.19508341, y: -0.050837636}
+      - {x: 0.250937, y: 0.13004029}
+      - {x: 0.22964925, y: 0.26025426}
   m_UseDelaunayMesh: 0
 --- !u!50 &5853435793905978779
 Rigidbody2D:
@@ -697,7 +697,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.74816227
+  m_Mass: 0.038482502
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 0
@@ -773,6 +773,8 @@ MonoBehaviour:
   maxHealth: 100
   damageSound: {fileID: 0}
   deathSound: {fileID: 0}
+  healthImage: {fileID: 0}
+  healthText: {fileID: 0}
 --- !u!114 &4576251910288862506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,9 +797,10 @@ MonoBehaviour:
     bulletAmount: 100
     fireSound: {fileID: 0}
     fireParticle: {fileID: 0}
+    firePoint: {fileID: 0}
   activeWeaponIndex: 0
-  firePoint: {fileID: 4700582807787457541}
   weaponPosition: {fileID: 6690029518372877871}
+  bulletText: {fileID: 0}
 --- !u!1 &7754821708811686303
 GameObject:
   m_ObjectHideFlags: 0
