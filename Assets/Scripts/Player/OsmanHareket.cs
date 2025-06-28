@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class OsmanHareket : MonoBehaviour
 {
+    
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] public float rotationSpeed = 10f;
@@ -14,10 +15,13 @@ public class OsmanHareket : MonoBehaviour
     private Camera mainCamera;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-
-    private Vector2 moveDirection;
+    
+    [HideInInspector] public Vector2 moveDirection;
     private Vector2 mousePosition;
     private string lastPlayedAnimation;
+
+    [HideInInspector] public float lastVerticalVector;
+    [HideInInspector] public float lastHorizontalVector;
     // [SerializeField]private BackgroundScroller backgroundScroller;
 
     void Start()
@@ -35,6 +39,15 @@ public class OsmanHareket : MonoBehaviour
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
+
+        if (moveDirection.x != 0)
+        {
+            lastHorizontalVector = moveDirection.x;
+        }
+        else if (moveDirection.y != 0)
+        {
+            lastVerticalVector = moveDirection.y;
+        }
 
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         
