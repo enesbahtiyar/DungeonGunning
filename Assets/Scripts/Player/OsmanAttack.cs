@@ -10,11 +10,12 @@ public class Weapon
     public float damage;
     public float fireRate;
     public GameObject bulletPrefab;
-    public float bulletFireDuration; 
-    public int bulletAmount; 
-    public AudioClip fireSound; 
-    public ParticleSystem fireParticle; 
-    public Transform firePoint; 
+    public float bulletFireDuration;
+    public int bulletAmount;
+    public AudioClip fireSound;
+    public ParticleSystem fireParticle;
+    public Transform firePoint;
+    public GameObject activeweaponPrefab;
 }
 
 public class OsmanAttack : MonoBehaviour
@@ -22,23 +23,23 @@ public class OsmanAttack : MonoBehaviour
     [Header("Weapons")]
     public List<Weapon> weapons = new List<Weapon>();
     public Dictionary<string, Weapon> weaponDictionary = new Dictionary<string, Weapon>();
-    
+
     [Header("Weapon Selection")]
     public int activeWeaponIndex = 0;
-    
+
     [Header("Fire Point")]
     public Transform weaponPosition;
-
     private Weapon activeWeapon;
     private float lastFireTime;
-    private Camera mainCamera; 
+    private Camera mainCamera;
     public TextMeshProUGUI bulletText;
+    private SpriteRenderer weaponSpriteRenderer;
 
     void Start()
     {
         mainCamera = Camera.main;
         LoadWeapons();
-        
+
         if (weapons.Count > 0)
             activeWeapon = weapons[activeWeaponIndex];
     }
@@ -47,7 +48,7 @@ public class OsmanAttack : MonoBehaviour
     {
         SwitchWeapon();
 
-        UpdateWeaponPosition(); 
+        UpdateWeaponPosition();
 
         if (Input.GetMouseButton(0) && activeWeapon != null)
         {
@@ -85,7 +86,7 @@ public class OsmanAttack : MonoBehaviour
         if (activeWeapon.bulletAmount <= 0) return;
 
         if (Time.time - lastFireTime < activeWeapon.bulletFireDuration) return;
-        
+
         if (activeWeapon.ranged)
         {
             RangedFire();
@@ -115,14 +116,14 @@ public class OsmanAttack : MonoBehaviour
     {
         Vector3 mousePos = Input.mousePosition;
         Vector3 world = mainCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mainCamera.nearClipPlane));
-        
+
         Vector2 direction = (world - weaponPosition.position).normalized;
 
-        if (activeWeapon.firePoint == null) return; 
-        
+        if (activeWeapon.firePoint == null) return;
+
         GameObject bullet = Instantiate(activeWeapon.bulletPrefab, activeWeapon.firePoint.position, Quaternion.identity);
         OsmanBullet bulletScript = bullet.GetComponent<OsmanBullet>();
-        
+
         if (bulletScript != null)
         {
             bulletScript.Fire(direction, activeWeapon.damage);
@@ -131,7 +132,7 @@ public class OsmanAttack : MonoBehaviour
 
     void MeleeFire()
     {
-        // Yakın saldırıyı da burada yapabiliriz yine isterseniz
+        // Yakın saldırı işlemleri burada yapılabilir
     }
 
     void UpdateWeaponPosition()
@@ -146,5 +147,27 @@ public class OsmanAttack : MonoBehaviour
 
         weaponPosition.rotation = Quaternion.Euler(0, 0, angle);
 
+        UpdateWeaponFlip(angle);
+    }
+
+    void UpdateWeaponFlip(float angle)
+    {
+        if (activeWeapon != null && activeWeapon.activeweaponPrefab != null)
+        {
+            weaponSpriteRenderer = activeWeapon.activeweaponPrefab.GetComponent<SpriteRenderer>();
+
+            if (weaponSpriteRenderer == null) return;
+
+            if (angle < 0) angle += 360;
+
+            if (angle >= 135 && angle < 225)
+            {
+                weaponSpriteRenderer.flipY = true;
+            }
+            else
+            {
+                weaponSpriteRenderer.flipY = false;
+            }
+        }
     }
 }
