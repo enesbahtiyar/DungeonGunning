@@ -52,6 +52,7 @@ public class OsmanHareket : MonoBehaviour
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         
         UpdateAnimations();
+
     }
 
     void FixedUpdate()
