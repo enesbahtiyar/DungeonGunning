@@ -58,7 +58,10 @@ public class OsmanHealth : MonoBehaviour
         }
         else
         {
-            enemyBase.TakeDamage();
+            if (enemyBase != null)
+            {
+                enemyBase.TakeDamage();
+            }
         }
     }
 

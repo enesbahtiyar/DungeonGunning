@@ -92,7 +92,6 @@ public class EnemyBase : MonoBehaviour
 
         if (Time.time > nextAttackTime)
         {
-            Debug.Log("Attack");
             animator.SetTrigger("isAttacking");
             nextAttackTime = Time.time + 1f / attackRate;
             //Start attacl animation and fire projectile?
@@ -107,7 +106,6 @@ public class EnemyBase : MonoBehaviour
         //Death animation?
         //Coin drop or exp reward?
         animator.SetTrigger("isDead");
-        Debug.Log(gameObject.name + " died");
         Destroy(gameObject, 3);
     }
     public virtual void ChangeEnemyState(EnemyState state)
