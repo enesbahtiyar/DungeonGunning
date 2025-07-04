@@ -3,35 +3,13 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [System.Serializable]
-    public struct EnemyTypeData
-    {
-        public string typeName;      // Örn: "Zombie", "Robot", "Boss"
-        public GameObject prefab;    // Prefab referansı
-    }
-
-    public struct EnemyInfo
-    {
-        public string name;
-        public string type;
-        public Vector3 position;
-
-        public EnemyInfo(string name, string type, Vector3 position)
-        {
-            this.name = name;
-            this.type = type;
-            this.position = position;
-        }
-    }
-
+    
     [Header("Spawner Ayarları")]
     [SerializeField] private GameObject player;
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private Vector2 spawnOffset = new Vector2(10f, 5f);
-    [SerializeField] private EnemyTypeData[] enemyTypes;
-
+    [SerializeField] private ObjectPooler enemyPool;
     private float timer;
-    private List<EnemyInfo> spawnedEnemies = new List<EnemyInfo>();
 
     void Update()
     {
@@ -45,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        if (player == null || enemyTypes.Length == 0) return;
+        if (player == null || enemyPool.pools.Count == 0) return;
 
         Vector3 playerPos = player.transform.position;
 
@@ -56,21 +34,12 @@ public class EnemySpawner : MonoBehaviour
         );
 
         // Rastgele düşman türü seç
-        EnemyTypeData chosen = enemyTypes[Random.Range(0, enemyTypes.Length)];
+        ObjectPooler.Pool enemyToPool = enemyPool.pools[Random.Range(0, enemyPool.pools.Count)];
+        string enemyToPoolName = enemyToPool.tag;
 
-        GameObject newEnemy = Instantiate(chosen.prefab, spawnPosition, Quaternion.identity);
+        enemyPool.spawnFromPool(enemyToPoolName, spawnPosition, Quaternion.identity);
 
-        // Düşmanın varsa EnemyBase gibi bir script'i, oraya player'ı gönder
-        if (newEnemy.TryGetComponent(out EnemyBase baseScript))
-        {
-            baseScript.player = player;
-        }
 
-        // Bilgiyi listeye ekle
-        EnemyInfo info = new EnemyInfo(newEnemy.name, chosen.typeName, newEnemy.transform.position);
-        spawnedEnemies.Add(info);
-
-        Debug.Log($"[Spawned] {info.type}: {info.name} at {info.position}");
     }
 }
     // Tüm düşmanları yazdırmak için opsiyone

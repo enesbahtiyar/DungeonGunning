@@ -66,6 +66,7 @@ MonoBehaviour:
   hitRange: 1
   maxHealth: 50
   animator: {fileID: -7614098163693226987}
+  hitbox: {fileID: 6657432979039210699}
   attackRate: 2
   player: {fileID: 0}
   state: 0

@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using UnityEngine;
-[RequireComponent(typeof(Health))]
+using Random = UnityEngine.Random;
+
+[RequireComponent(typeof(OsmanHealth))]
 public class EnemyBase : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
     [SerializeField] private float hitRange;
     [SerializeField] private float maxHealth;
     [SerializeField] private Animator animator;
+    [SerializeField] private Collider2D hitbox;
     private float currentHealth;
     [SerializeField, Tooltip("Attack Per Second")] private float attackRate;
     private float nextAttackTime;
@@ -15,6 +19,7 @@ public class EnemyBase : MonoBehaviour
     private bool isDead = false;
     private bool playerInHitRange;
     private float baseMovementSpeed;
+
 
     public enum EnemyState
     {
@@ -33,6 +38,13 @@ public class EnemyBase : MonoBehaviour
         movementSpeed = Random.Range(movementSpeed * 0.8f, movementSpeed * 1.2f);
 
     }
+
+    public void OnEnable()
+    {
+        ChangeEnemyState(EnemyState.chasing);
+        hitbox.enabled = true;
+    }
+
     public virtual void Update()
     {
         if (!isDead)
@@ -105,9 +117,16 @@ public class EnemyBase : MonoBehaviour
     {
         //Death animation?
         //Coin drop or exp reward?
+        hitbox.enabled = false;
         animator.SetTrigger("isDead");
-        Destroy(gameObject, 3);
+        Invoke("DeactivateObject", 2f);
     }
+
+    public void DeactivateObject()
+    {
+        this.gameObject.SetActive(false);
+    }
+    
     public virtual void ChangeEnemyState(EnemyState state)
     {
         if (this.state == state) return;
