@@ -19,3 +19,11 @@ public enum EntityType
     AI,
     Player
 }
+
+public enum EnemyState
+{
+    idle,
+    chasing,
+    attacking,
+    die
+}

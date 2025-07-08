@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -27,11 +29,17 @@ public class EnemySpawner : MonoBehaviour
 
         Vector3 playerPos = player.transform.position;
 
-        Vector3 spawnPosition = new Vector3(
-            Random.Range(playerPos.x - spawnOffset.x, playerPos.x + spawnOffset.x),
-            Random.Range(playerPos.y - spawnOffset.y, playerPos.y + spawnOffset.y),
-            0f // 2D için Z sabit
-        );
+        
+        float spawnX = Random.Range(playerPos.x - spawnOffset.x, playerPos.x + spawnOffset.x);
+        float spawnY = Random.Range(playerPos.y - spawnOffset.y, playerPos.y + spawnOffset.y);
+
+        if (spawnX <= 3 && spawnX >= -3 || spawnY <= 1.5f && spawnY >= -1.5f)
+        {
+            spawnX = spawnX * 2;
+            spawnY = spawnY * 2;
+        }
+        
+        Vector3 spawnPosition = new Vector3(spawnX,spawnY, 0f);
 
         // Rastgele düşman türü seç
         ObjectPooler.Pool enemyToPool = enemyPool.pools[Random.Range(0, enemyPool.pools.Count)];

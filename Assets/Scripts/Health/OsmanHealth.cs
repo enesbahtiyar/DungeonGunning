@@ -71,7 +71,7 @@ public class OsmanHealth : MonoBehaviour
         if (entityType == EntityType.AI)
         {
             //Destroy(gameObject);
-            enemyBase.ChangeEnemyState(EnemyBase.EnemyState.die);
+            enemyBase.ChangeEnemyState(EnemyState.die);
             //isterseniz enemy ölünce burada daha farklı yapılacakları yazabiliriz animasyon hariç.
         }
         else if (entityType == EntityType.Player)

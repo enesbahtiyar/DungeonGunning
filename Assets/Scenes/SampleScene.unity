@@ -950,13 +950,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652778036}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.99927974, w: -0.037948385}
-  m_LocalPosition: {x: 0.03641489, y: -0.029707491, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104664049}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -184.35}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &652778038
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -991,8 +991,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.96, y: -1.02}
-  m_Radius: 0.36
+  m_Offset: {x: -1, y: -1}
+  m_Radius: 0.5
 --- !u!58 &652778039
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1027,8 +1027,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.08, y: 0.94}
-  m_Radius: 0.36
+  m_Offset: {x: 1, y: 1}
+  m_Radius: 0.5
 --- !u!212 &652778040
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1150,13 +1150,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679533489}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.24277827, w: 0.97008187}
-  m_LocalPosition: {x: -0.018, y: 0.03, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104664049}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.101}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!212 &679533491
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1246,8 +1246,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.96, y: -1.02}
-  m_Radius: 0.36
+  m_Offset: {x: -1, y: -1}
+  m_Radius: 0.5
 --- !u!58 &679533493
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1282,8 +1282,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.08, y: 0.94}
-  m_Radius: 0.36
+  m_Offset: {x: 1, y: 1}
+  m_Radius: 0.5
 --- !u!893571522 &679533494
 CustomCollider2D:
   m_ObjectHideFlags: 0
@@ -1779,13 +1779,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720634878}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.50419974, w: 0.8635871}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104664049}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -60.556}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!58 &1720634880
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1820,8 +1820,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.96, y: -1.02}
-  m_Radius: 0.36
+  m_Offset: {x: -1, y: -1}
+  m_Radius: 0.5
 --- !u!58 &1720634881
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1856,8 +1856,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.08, y: 0.94}
-  m_Radius: 0.36
+  m_Offset: {x: 1, y: 1}
+  m_Radius: 0.5
 --- !u!212 &1720634882
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1984,13 +1984,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851033890}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.798289, w: 0.60227466}
+  m_LocalRotation: {x: 0, y: 0, z: 0.92387956, w: 0.38268343}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104664049}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -105.934}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135}
 --- !u!58 &1851033892
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2025,8 +2025,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.96, y: -1.02}
-  m_Radius: 0.36
+  m_Offset: {x: -1, y: -1}
+  m_Radius: 0.5
 --- !u!58 &1851033893
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2061,8 +2061,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.08, y: 0.94}
-  m_Radius: 0.36
+  m_Offset: {x: 1, y: 1}
+  m_Radius: 0.5
 --- !u!212 &1851033894
 SpriteRenderer:
   m_ObjectHideFlags: 0
