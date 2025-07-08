@@ -764,6 +764,7 @@ GameObject:
   - component: {fileID: 570526925}
   - component: {fileID: 570526924}
   - component: {fileID: 570526926}
+  - component: {fileID: 570526927}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -820,6 +821,24 @@ MonoBehaviour:
     size: 200
   player: {fileID: 4722497542731843826}
   parentTransform: {fileID: 1427485744}
+--- !u!114 &570526927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570526923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641da562c5221814084403ad65b62fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: AirstrikeMarker
+    prefab: {fileID: 5960587199399998440, guid: d83931323aba5714699daf7d85f5acb3, type: 3}
+    size: 10
+  player: {fileID: 0}
+  parentTransform: {fileID: 0}
 --- !u!1 &650011541
 GameObject:
   m_ObjectHideFlags: 0

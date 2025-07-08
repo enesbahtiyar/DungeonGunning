@@ -2,32 +2,39 @@ using UnityEngine;
 
 public class SkillController : MonoBehaviour
 {
+    [SerializeField] AirStrikePooler airStrikePooler;
     [SerializeField] private GameObject airStrikeMarker;
     private GameObject currentMarker;
+    private GameObject lateMarker;
     private bool isTargeting = false;
+    
 
     void Update()
     {
+        
+        
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
             isTargeting = true;
-            
         }
         if (isTargeting)
         {
-
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
             if (currentMarker == null)
             {
-                currentMarker = Instantiate(airStrikeMarker, Vector3.zero, Quaternion.identity);
+                currentMarker = airStrikePooler.spawnFromPool("AirstrikeMarker", mousePos, Quaternion.identity);
             }
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
+            
+            Debug.Log(mousePos);
             currentMarker.transform.position = mousePos;
+            
             if (Input.GetMouseButtonDown(0))
             {
                 currentMarker.GetComponent<AirStrike>().StartAirStrike();
                 isTargeting = false;
+                currentMarker = null;
             }
         }
     }
