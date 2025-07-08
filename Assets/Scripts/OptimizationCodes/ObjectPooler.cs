@@ -59,7 +59,7 @@ public class ObjectPooler : MonoBehaviour
             objectToPool.transform.rotation = rotation;
             poolDictionary[tag].Enqueue(objectToPool);
 
-            return gameObject;
+            return objectToPool;
         }
     }
 }

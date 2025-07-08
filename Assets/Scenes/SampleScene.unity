@@ -764,6 +764,7 @@ GameObject:
   - component: {fileID: 570526925}
   - component: {fileID: 570526924}
   - component: {fileID: 570526926}
+  - component: {fileID: 570526927}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -820,6 +821,24 @@ MonoBehaviour:
     size: 200
   player: {fileID: 4722497542731843826}
   parentTransform: {fileID: 1427485744}
+--- !u!114 &570526927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570526923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641da562c5221814084403ad65b62fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: AirstrikeMarker
+    prefab: {fileID: 5960587199399998440, guid: d83931323aba5714699daf7d85f5acb3, type: 3}
+    size: 10
+  player: {fileID: 0}
+  parentTransform: {fileID: 0}
 --- !u!1 &650011541
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,13 +969,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652778036}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.99927974, w: -0.037948385}
-  m_LocalPosition: {x: 0.03641489, y: -0.029707491, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104664049}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -184.35}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &652778038
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -991,8 +1010,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.96, y: -1.02}
-  m_Radius: 0.36
+  m_Offset: {x: -1, y: -1}
+  m_Radius: 0.5
 --- !u!58 &652778039
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1027,8 +1046,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.08, y: 0.94}
-  m_Radius: 0.36
+  m_Offset: {x: 1, y: 1}
+  m_Radius: 0.5
 --- !u!212 &652778040
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1150,13 +1169,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679533489}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.24277827, w: 0.97008187}
-  m_LocalPosition: {x: -0.018, y: 0.03, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104664049}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.101}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!212 &679533491
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1246,8 +1265,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.96, y: -1.02}
-  m_Radius: 0.36
+  m_Offset: {x: -1, y: -1}
+  m_Radius: 0.5
 --- !u!58 &679533493
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1282,8 +1301,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.08, y: 0.94}
-  m_Radius: 0.36
+  m_Offset: {x: 1, y: 1}
+  m_Radius: 0.5
 --- !u!893571522 &679533494
 CustomCollider2D:
   m_ObjectHideFlags: 0
@@ -1644,78 +1663,6 @@ Transform:
   - {fileID: 1722116325}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1613530842
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1613530845}
-  - component: {fileID: 1613530844}
-  - component: {fileID: 1613530843}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1613530843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613530842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eca3503642ffdcf40b9ce79b7ae3bfea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityType: 0
-  health: 0
-  maxHealth: 0
-  damageSound: {fileID: 0}
-  deathSound: {fileID: 0}
-  healthImage: {fileID: 0}
-  healthText: {fileID: 0}
---- !u!114 &1613530844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613530842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a35991bf7a037fc409d8fe494794d167, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 0
-  hitRange: 0
-  maxHealth: 0
-  animator: {fileID: 0}
-  hitbox: {fileID: 0}
-  attackRate: 0
-  player: {fileID: 0}
-  state: 0
---- !u!4 &1613530845
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613530842}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5092926, y: 6.284086, z: 0.33927572}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1614026424 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7192473049418237615, guid: ad363f95eaf31a34198bfefa5b22721c, type: 3}
@@ -1851,13 +1798,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720634878}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.50419974, w: 0.8635871}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104664049}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -60.556}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!58 &1720634880
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1892,8 +1839,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.96, y: -1.02}
-  m_Radius: 0.36
+  m_Offset: {x: -1, y: -1}
+  m_Radius: 0.5
 --- !u!58 &1720634881
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1928,8 +1875,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.08, y: 0.94}
-  m_Radius: 0.36
+  m_Offset: {x: 1, y: 1}
+  m_Radius: 0.5
 --- !u!212 &1720634882
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2056,13 +2003,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851033890}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.798289, w: 0.60227466}
+  m_LocalRotation: {x: 0, y: 0, z: 0.92387956, w: 0.38268343}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104664049}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -105.934}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135}
 --- !u!58 &1851033892
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2097,8 +2044,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.96, y: -1.02}
-  m_Radius: 0.36
+  m_Offset: {x: -1, y: -1}
+  m_Radius: 0.5
 --- !u!58 &1851033893
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2133,8 +2080,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.08, y: 0.94}
-  m_Radius: 0.36
+  m_Offset: {x: 1, y: 1}
+  m_Radius: 0.5
 --- !u!212 &1851033894
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2754,5 +2701,4 @@ SceneRoots:
   - {fileID: 456011367}
   - {fileID: 336532601}
   - {fileID: 1481711430}
-  - {fileID: 1613530845}
   - {fileID: 1339887461}

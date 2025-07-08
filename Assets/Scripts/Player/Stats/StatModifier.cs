@@ -1,10 +1,5 @@
 using UnityEngine;
 
-public enum ModifierType
-{
-    Flat,
-    Percent
-}
 public class StatModifier 
 {
     public float value;
