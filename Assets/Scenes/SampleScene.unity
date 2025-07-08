@@ -2467,6 +2467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d29a43da860ca4ead32481178c8b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  airStrikePooler: {fileID: 570526927}
   airStrikeMarker: {fileID: 5960587199399998440, guid: d83931323aba5714699daf7d85f5acb3, type: 3}
 --- !u!114 &4722497542731843840
 MonoBehaviour:

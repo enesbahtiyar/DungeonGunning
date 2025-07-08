@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SkillController : MonoBehaviour
 {
-    
+    [SerializeField] AirStrikePooler airStrikePooler;
     [SerializeField] private GameObject airStrikeMarker;
     private GameObject currentMarker;
     private bool isTargeting = false;
