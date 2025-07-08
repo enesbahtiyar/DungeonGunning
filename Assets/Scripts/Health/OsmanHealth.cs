@@ -1,11 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public enum EntityType
-{
-    AI,
-    Player
-}
+
 
 public class OsmanHealth : MonoBehaviour
 {
