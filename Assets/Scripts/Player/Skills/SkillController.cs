@@ -2,17 +2,13 @@ using UnityEngine;
 
 public class SkillController : MonoBehaviour
 {
-    [SerializeField] AirStrikePooler airStrikePooler;
+    
     [SerializeField] private GameObject airStrikeMarker;
     private GameObject currentMarker;
-    private GameObject lateMarker;
     private bool isTargeting = false;
     
-
     void Update()
     {
-        
-        
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             isTargeting = true;
@@ -26,8 +22,6 @@ public class SkillController : MonoBehaviour
                 currentMarker = airStrikePooler.spawnFromPool("AirstrikeMarker", mousePos, Quaternion.identity);
             }
             
-            
-            Debug.Log(mousePos);
             currentMarker.transform.position = mousePos;
             
             if (Input.GetMouseButtonDown(0))
