@@ -26,6 +26,7 @@ public class OsmanHareket : MonoBehaviour
 
     void Start()
     {
+        moveSpeed = PlayerStats.Instance.movementSpeed.Value;
         rb = GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();

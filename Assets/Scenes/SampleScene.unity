@@ -2494,6 +2494,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7401768887451922763, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4722497542731843839}
+    - targetCorrespondingSourceObject: {fileID: 7401768887451922763, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4722497542731843840}
   m_SourcePrefab: {fileID: 100100000, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
 --- !u!1 &4722497542731843826 stripped
 GameObject:
@@ -2518,6 +2521,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   airStrikeMarker: {fileID: 5960587199399998440, guid: d83931323aba5714699daf7d85f5acb3, type: 3}
+--- !u!114 &4722497542731843840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722497542731843826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187f702455622044a9baae37dbce9883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health:
+    baseValue: 100
+  attackPower:
+    baseValue: 10
+  fireRate:
+    baseValue: 1
+  movementSpeed:
+    baseValue: 3.5
+  attackRange:
+    baseValue: 1.5
+  cooldownModifier:
+    baseValue: 0
 --- !u!1001 &5728893643391137918
 PrefabInstance:
   m_ObjectHideFlags: 0
