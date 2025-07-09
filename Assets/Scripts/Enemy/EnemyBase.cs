@@ -42,6 +42,7 @@ public class EnemyBase : MonoBehaviour
     public void OnEnable()
     {
         ChangeEnemyState(EnemyState.chasing);
+        isDead = false;
         hitbox.enabled = true;
     }
 
@@ -64,7 +65,6 @@ public class EnemyBase : MonoBehaviour
                 AttackToPlayer();
                 break;
             case EnemyState.die:
-                isDead = true;
                 Die();
                 break;
 
@@ -115,11 +115,16 @@ public class EnemyBase : MonoBehaviour
     }
     public virtual void Die()
     {
+        if (isDead) return;
+        isDead = true;
         //Death animation?
         //Coin drop or exp reward?
         hitbox.enabled = false;
         animator.SetTrigger("isDead");
         Invoke("DeactivateObject", 2f);
+
+        PlayerStats.Instance.GainXp(10);
+        
     }
 
     public void DeactivateObject()

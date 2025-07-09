@@ -20,13 +20,11 @@ public class PlayerStats : MonoBehaviour
     public Stat attackRange;
     //public Stat criticalChance;
     //public Stat criticalDamage;
-    //public Stat experience;
-    //public Stat level;
     //public Stat gold;
     [Header("Level & XP")]
-    public int Level { get; private set; } = 1;
-    public int CurrentXP { get; private set; } = 0;
-    public int XPToNextLevel { get; private set; } = 100;
+    public int Level = 1;
+    public int CurrentXP = 0;
+    public int XPToNextLevel = 100;
 
     public event Action<int> OnLevelUp;
     public event Action<int, int> OnXPChanged;
@@ -46,7 +44,9 @@ public class PlayerStats : MonoBehaviour
             Level++;
             XPToNextLevel = CalculateXPNeeden(Level);
 
-
+            ApplyLevelUpBonusses();
+            OnLevelUp?.Invoke(Level);
+            OnXPChanged?.Invoke(CurrentXP, XPToNextLevel);
         }
     }
     private int CalculateXPNeeden(int level)
