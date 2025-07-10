@@ -11,6 +11,8 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private float maxHealth;
     [SerializeField] private Animator animator;
     [SerializeField] private Collider2D hitbox;
+    [SerializeField] private GameObject xpOrb;
+    public int xpReward;
     private float currentHealth;
     [SerializeField, Tooltip("Attack Per Second")] private float attackRate;
     private float nextAttackTime;
@@ -122,7 +124,7 @@ public class EnemyBase : MonoBehaviour
         hitbox.enabled = false;
         animator.SetTrigger("isDead");
         Invoke("DeactivateObject", 2f);
-
+        Instantiate(xpOrb,transform.position,Quaternion.identity).GetComponent<XpOrb>().xpAmount=xpReward;
         PlayerStats.Instance.GainXp(10);
         
     }

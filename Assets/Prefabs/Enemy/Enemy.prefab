@@ -67,6 +67,8 @@ MonoBehaviour:
   maxHealth: 50
   animator: {fileID: -7614098163693226987}
   hitbox: {fileID: 6657432979039210699}
+  xpOrb: {fileID: 2165805785838558576, guid: 1902d7ec5d95df246a0f5d4d0fe559b0, type: 3}
+  xpReward: 20
   attackRate: 2
   player: {fileID: 0}
   state: 0

@@ -2001,6 +2001,8 @@ MonoBehaviour:
   maxHealth: 0
   animator: {fileID: 0}
   hitbox: {fileID: 0}
+  xpOrb: {fileID: 0}
+  xpReward: 0
   attackRate: 0
   player: {fileID: 0}
   state: 0
