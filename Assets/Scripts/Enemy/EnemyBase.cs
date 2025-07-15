@@ -23,13 +23,7 @@ public class EnemyBase : MonoBehaviour
     private float baseMovementSpeed;
 
 
-    public enum EnemyState
-    {
-        idle,
-        chasing,
-        attacking,
-        die
-    }
+
     [SerializeField] EnemyState state;
     public virtual void Start()
     {
@@ -53,6 +47,7 @@ public class EnemyBase : MonoBehaviour
         if (!isDead)
         {
             LookToPlayer();
+            //TODO: Can be OPTIMIZED with SEP(Single Entry Point)
             playerInHitRange = Vector2.Distance(player.transform.position, transform.position) < hitRange;
         }
         switch (state)

@@ -1,17 +1,8 @@
 using System;
 using UnityEngine;
-public enum StatType
+
+public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
 {
-    Health,
-    AttackPower,
-    FireRate,
-    MoveSpeed,
-    CooldownModifier,
-    AttackRange
-}
-public class PlayerStats : MonoBehaviour
-{
-    public static PlayerStats Instance { get; private set; }
     [Header("Player Stats")]
     public Stat health;
     public Stat attackPower;
@@ -29,11 +20,7 @@ public class PlayerStats : MonoBehaviour
     public event Action<int> OnLevelUp;
     public event Action<int, int> OnXPChanged;
     public Stat cooldownModifier;
-    private void Awake()
-    {
-        if (Instance != null && Instance != this) Destroy(gameObject);
-        else Instance = this;
-    }
+    
     public void GainXp(int amount)
     {
         CurrentXP += amount;
@@ -42,14 +29,14 @@ public class PlayerStats : MonoBehaviour
         {
             CurrentXP -= XPToNextLevel;
             Level++;
-            XPToNextLevel = CalculateXPNeeden(Level);
+            XPToNextLevel = CalculateXPNeeded(Level);
 
             ApplyLevelUpBonusses();
             OnLevelUp?.Invoke(Level);
             OnXPChanged?.Invoke(CurrentXP, XPToNextLevel);
         }
     }
-    private int CalculateXPNeeden(int level)
+    private int CalculateXPNeeded(int level)
     {
         return (int)(100 * Mathf.Pow(1.1f, level - 1)); // Example formula for XP needed per level
     }
@@ -68,6 +55,9 @@ public class PlayerStats : MonoBehaviour
     }
     public void RemoveModifierFromSource(object source)
     {
+        
+        //TODO: Check Here if you are having problems with optimisation
+        
         health.RemoveModifierFromSource(source);
         attackPower.RemoveModifierFromSource(source);
         fireRate.RemoveModifierFromSource(source);

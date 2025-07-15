@@ -3,8 +3,8 @@ using UnityEngine;
 public class AirStrike : MonoBehaviour
 {
     [SerializeField] private GameObject airStrikePlane;
-    [SerializeField] private float spawnOffsetX = -10f; // kameranýn solundan çýksýn
-    [SerializeField] private float endOffsetX = 15f; // ekranýn saðýndan çýksýn
+    [SerializeField] private float spawnOffsetX = -10f; // kameranï¿½n solundan ï¿½ï¿½ksï¿½n
+    [SerializeField] private float endOffsetX = 15f; // ekranï¿½n saï¿½ï¿½ndan ï¿½ï¿½ksï¿½n
     [SerializeField] private float planeSpeed = 5f;
     [SerializeField] private int numberOfPlanes = 3;
     [SerializeField] private float yOffsetRange = 2f;
@@ -19,5 +19,10 @@ public class AirStrike : MonoBehaviour
             GameObject plane = Instantiate(airStrikePlane, spawnPos, Quaternion.identity);
             plane.GetComponent<AirStrikePlane>().FlyTo(targetPos, planeSpeed,transform);
         }
+        Invoke("CloseObject", 5f);
+    }
+    void CloseObject()
+    {
+        gameObject.SetActive(false);
     }
 }
