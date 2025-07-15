@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 92543246532371753}
   - component: {fileID: 78462934105893688}
   - component: {fileID: 3808267088583741474}
+  - component: {fileID: 6098587628497530063}
   m_Layer: 8
   m_Name: EnemyDemon
   m_TagString: Untagged
@@ -197,6 +198,9 @@ MonoBehaviour:
   deathSound: {fileID: 0}
   healthImage: {fileID: 0}
   healthText: {fileID: 0}
+  DiePanel: {fileID: 0}
+  closebutton: {fileID: 0}
+  restartButton: {fileID: 0}
 --- !u!114 &3808267088583741474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,3 +223,22 @@ MonoBehaviour:
   attackRate: 3
   player: {fileID: 0}
   state: 0
+--- !u!114 &6098587628497530063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8388334429492171828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a64739618a450449c02c31110058b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 1.5
+  attackCooldown: 1
+  attackDamage: 2
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  playerStats: {fileID: 0}

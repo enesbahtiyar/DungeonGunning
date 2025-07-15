@@ -75,12 +75,13 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     {
         return statType switch
         {
-            StatType.Health => maxHealth,
+            StatType.MaxHealth => maxHealth,
             StatType.AttackPower => attackPower,
             StatType.FireRate => fireRate,
             StatType.MoveSpeed => movementSpeed,
             StatType.CooldownModifier => cooldownModifier,
             StatType.AttackRange => attackRange,
+            
             _ => throw new ArgumentOutOfRangeException(nameof(statType), statType, null)
         };
     }

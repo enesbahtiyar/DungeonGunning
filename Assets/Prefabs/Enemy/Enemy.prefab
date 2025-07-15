@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4052143701634945424}
   - component: {fileID: -7614098163693226987}
   - component: {fileID: 6657432979039210699}
+  - component: {fileID: 7671327907288050143}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -91,6 +92,9 @@ MonoBehaviour:
   deathSound: {fileID: 0}
   healthImage: {fileID: 0}
   healthText: {fileID: 0}
+  DiePanel: {fileID: 0}
+  closebutton: {fileID: 0}
+  restartButton: {fileID: 0}
 --- !u!212 &7691371765211451975
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -232,3 +236,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.065413, y: -0.05015728}
   m_Size: {x: 0.6636623, y: 0.86342245}
   m_Direction: 0
+--- !u!114 &7671327907288050143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2611816920069350289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a64739618a450449c02c31110058b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 1.5
+  attackCooldown: 1
+  attackDamage: 1
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  playerStats: {fileID: 0}

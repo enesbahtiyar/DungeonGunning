@@ -16,13 +16,33 @@ public class OsmanHealth : MonoBehaviour
     public TextMeshProUGUI healthText;
 
     private EnemyBase enemyBase;
+    public GameObject DiePanel;
+    public Button closebutton, restartButton;
     void Start()
     {
-        maxHealth=PlayerStats.Instance.maxHealth.Value;
+        maxHealth = PlayerStats.Instance.maxHealth.Value;
         health = maxHealth;
         enemyBase = GetComponent<EnemyBase>();
+        if (entityType == EntityType.Player && DiePanel != null)
+        {
+            DiePanel.SetActive(false);
+            if (closebutton != null)
+                closebutton.onClick.AddListener(CloseDiePanel);
+            if (restartButton != null)
+                restartButton.onClick.AddListener(PlayAgain);
+        }
     }
-
+    public void CloseDiePanel()
+    {
+        if (entityType == EntityType.Player && DiePanel != null)
+        {
+            DiePanel.SetActive(false);
+        }
+    }
+    public void PlayAgain()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
     void Update()
     {
         if (healthImage != null)
@@ -77,7 +97,11 @@ public class OsmanHealth : MonoBehaviour
         }
         else if (entityType == EntityType.Player)
         {
-            //buraya da player ölünce yapılacak işlemler yazarız
+            if (DiePanel != null)
+            {
+                DiePanel.SetActive(true);
+            }
+            // Player ölünce yapılacak işlemler
             Debug.Log("Player has died.");
         }
     }
