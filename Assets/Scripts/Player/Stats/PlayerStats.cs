@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
 {
     [Header("Player Stats")]
-    public Stat health;
+    public Stat maxHealth;
     public Stat attackPower;
     public Stat fireRate;
     public Stat movementSpeed;
@@ -20,7 +20,11 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     public event Action<int> OnLevelUp;
     public event Action<int, int> OnXPChanged;
     public Stat cooldownModifier;
-    
+
+    private void Start()
+    {
+        ApplyModifier(StatType.AttackPower, new StatModifier(10, ModifierType.Flat, this));
+    }
     public void GainXp(int amount)
     {
         CurrentXP += amount;
@@ -42,7 +46,7 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     }
     public void ApplyLevelUpBonusses()
     {
-        health.baseValue += 10; // Example bonus
+        maxHealth.baseValue += 10; // Example bonus
         attackPower.baseValue += 2; // Example bonus
         fireRate.baseValue += 0.1f; // Example bonus
         movementSpeed.baseValue += 0.1f; // Example bonus
@@ -53,12 +57,13 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     {
         GetStat(statType)?.AddModifier(modifier);
     }
+
     public void RemoveModifierFromSource(object source)
     {
         
         //TODO: Check Here if you are having problems with optimisation
         
-        health.RemoveModifierFromSource(source);
+        maxHealth.RemoveModifierFromSource(source);
         attackPower.RemoveModifierFromSource(source);
         fireRate.RemoveModifierFromSource(source);
         movementSpeed.RemoveModifierFromSource(source);
@@ -70,7 +75,7 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     {
         return statType switch
         {
-            StatType.Health => health,
+            StatType.Health => maxHealth,
             StatType.AttackPower => attackPower,
             StatType.FireRate => fireRate,
             StatType.MoveSpeed => movementSpeed,

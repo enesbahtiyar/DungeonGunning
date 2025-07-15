@@ -18,6 +18,7 @@ public class OsmanHealth : MonoBehaviour
     private EnemyBase enemyBase;
     void Start()
     {
+        maxHealth=PlayerStats.Instance.maxHealth.Value;
         health = maxHealth;
         enemyBase = GetComponent<EnemyBase>();
     }
