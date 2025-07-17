@@ -13,7 +13,7 @@ public class OsmanHealth : MonoBehaviour
     public AudioClip deathSound;
 
     public Image healthImage;
-    public TextMeshProUGUI healthText;
+    //public TextMeshProUGUI healthText;
 
     private EnemyBase enemyBase;
     public GameObject DiePanel;
@@ -31,6 +31,8 @@ public class OsmanHealth : MonoBehaviour
             if (restartButton != null)
                 restartButton.onClick.AddListener(PlayAgain);
         }
+        if (healthImage != null)
+            healthImage.fillAmount = health / maxHealth;
     }
     public void CloseDiePanel()
     {
@@ -43,13 +45,6 @@ public class OsmanHealth : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
-    void Update()
-    {
-        if (healthImage != null)
-            healthImage.fillAmount = health / maxHealth;
-        if (healthText != null)
-            healthText.text = $"{health} / {maxHealth}";
-    }
 
     public void IncreaseHealth(float amount)
     {
@@ -58,6 +53,8 @@ public class OsmanHealth : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(damageSound, transform.position);
         }
+        if (healthImage != null)
+            healthImage.fillAmount = health / maxHealth;
     }
 
     public void DecreaseHealth(float amount)
@@ -80,6 +77,9 @@ public class OsmanHealth : MonoBehaviour
                 enemyBase.TakeDamage();
             }
         }
+        if (healthImage != null)
+            healthImage.fillAmount = health / maxHealth;
+        Debug.Log("1");
     }
 
     void OnDeath()
