@@ -197,7 +197,6 @@ MonoBehaviour:
   damageSound: {fileID: 0}
   deathSound: {fileID: 0}
   healthImage: {fileID: 0}
-  healthText: {fileID: 0}
   DiePanel: {fileID: 0}
   closebutton: {fileID: 0}
   restartButton: {fileID: 0}
@@ -213,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f345c7024b58d345900bebb9e928a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 4
+  movementSpeed: 0.2
   hitRange: 1
   maxHealth: 50
   animator: {fileID: 5511654048025902193}

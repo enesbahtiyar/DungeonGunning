@@ -46,12 +46,12 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     }
     public void ApplyLevelUpBonusses()
     {
-        maxHealth.baseValue += 10; // Example bonus
-        attackPower.baseValue += 2; // Example bonus
-        fireRate.baseValue += 0.1f; // Example bonus
-        movementSpeed.baseValue += 0.1f; // Example bonus
-        attackRange.baseValue += 0.1f; // Example bonus
-        cooldownModifier.baseValue += 0.05f; // Example bonus
+        maxHealth.SetBaseValue(maxHealth.baseValue + 10);
+        attackPower.SetBaseValue(attackPower.baseValue + 2);
+        fireRate.SetBaseValue(fireRate.baseValue + 0.1f);
+        movementSpeed.SetBaseValue(movementSpeed.baseValue + 0.1f);
+        attackRange.SetBaseValue(attackRange.baseValue + 0.1f);
+        cooldownModifier.SetBaseValue(cooldownModifier.baseValue + 0.05f);
     }
     public void ApplyModifier(StatType statType, StatModifier modifier)
     {

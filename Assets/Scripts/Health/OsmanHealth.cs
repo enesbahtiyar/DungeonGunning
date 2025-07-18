@@ -66,6 +66,8 @@ public class OsmanHealth : MonoBehaviour
         }
 
         health = Mathf.Max(health - amount, 0);
+        PopupSpawner.Instance.ShowPopup(transform.position, amount.ToString(), Color.red);
+
         if (health <= 0)
         {
             OnDeath();
@@ -79,7 +81,6 @@ public class OsmanHealth : MonoBehaviour
         }
         if (healthImage != null)
             healthImage.fillAmount = health / maxHealth;
-        Debug.Log("1");
     }
 
     void OnDeath()
