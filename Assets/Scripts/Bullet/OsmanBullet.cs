@@ -6,7 +6,7 @@ public class OsmanBullet : MonoBehaviour
     public float speed = 10f;
     public float lifetime = 3f;
     public LayerMask targetLayer;
-    
+
     private float damage;
     private Rigidbody2D rb;
 
@@ -20,7 +20,7 @@ public class OsmanBullet : MonoBehaviour
     {
         damage = _damage;
         rb = GetComponent<Rigidbody2D>();
-        rb.linearVelocity = direction * speed; 
+        rb.linearVelocity = direction * speed;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
@@ -32,13 +32,13 @@ public class OsmanBullet : MonoBehaviour
         //    return;
 
         //OsmanHealth health = other.GetComponent<OsmanHealth>();
-        
+
         //if (health != null && health.entityType == EntityType.AI)
         //{
         //    health.DecreaseHealth(damage);
         //    Destroy(gameObject);
         //}
-        if(other.gameObject.TryGetComponent<OsmanHealth>(out OsmanHealth health))
+        if (other.gameObject.TryGetComponent<OsmanHealth>(out OsmanHealth health) && (targetLayer.value & (1 << other.gameObject.layer)) != 0)
         {
             health.DecreaseHealth(damage);
             Destroy(gameObject);
