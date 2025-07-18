@@ -109,6 +109,7 @@
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\Player\OsmanAttack.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenü.cs" />
     <Compile Include="Assets\Scripts\KnifesOsman.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\OptimizationCodes\ObjectPooler.cs" />
