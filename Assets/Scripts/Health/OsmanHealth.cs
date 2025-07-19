@@ -104,6 +104,7 @@ public class OsmanHealth : MonoBehaviour
             }
             // Player ölünce yapılacak işlemler
             Debug.Log("Player has died.");
+            
         }
     }
 }
