@@ -128,6 +128,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\OptimizationCodes\EnemyPool.cs" />
     <Compile Include="Assets\Scripts\Bullet\OsmanBullet.cs" />
+    <Compile Include="Assets\Scripts\UI\TimerDisplay.cs" />
     <Compile Include="Assets\Scripts\Player\Stats\Stat.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\Health\OsmanHealth.cs" />
