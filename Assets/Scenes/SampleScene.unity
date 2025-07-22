@@ -485,6 +485,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175110031}
   m_CullTransparentMesh: 1
+--- !u!1 &298893242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6929427626248367638, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+  m_PrefabInstance: {fileID: 4722497542731843825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &336532600
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +520,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1481711430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &336532602
 SpriteRenderer:
@@ -1381,8 +1386,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4722497542731843826}
-  spawnInterval: 0.1
-  spawnOffset: {x: 10, y: 5}
+  spawnInterval: 0.01
+  spawnOffset: {x: 20, y: 10}
   enemyPool: {fileID: 570526926}
 --- !u!4 &570526925
 Transform:
@@ -2375,6 +2380,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1392242455 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4700582807787457541, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+  m_PrefabInstance: {fileID: 4722497542731843825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1481711428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,6 +2443,7 @@ Transform:
   - {fileID: 567172369}
   - {fileID: 710689796}
   - {fileID: 1722116325}
+  - {fileID: 336532601}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1510694561
@@ -3300,6 +3311,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3198331300535798881, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3668906100112735300, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3339,6 +3354,50 @@ PrefabInstance:
     - target: {fileID: 3668906100112735300, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: weapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: weapons.Array.data[1].name
+      value: ak47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: weapons.Array.data[1].damage
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: weapons.Array.data[1].ranged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: weapons.Array.data[1].fireRate
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: weapons.Array.data[1].firePoint
+      value: 
+      objectReference: {fileID: 1392242455}
+    - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: weapons.Array.data[1].bulletAmount
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: weapons.Array.data[1].bulletPrefab
+      value: 
+      objectReference: {fileID: 7216717761625420645, guid: 405861bacf9f34647afd860be2c3e655, type: 3}
+    - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: weapons.Array.data[1].activeweaponPrefab
+      value: 
+      objectReference: {fileID: 298893242}
+    - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: weapons.Array.data[1].bulletFireDuration
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087087710938445245, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6924087417838430853, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: airStrikePooler
@@ -3582,7 +3641,6 @@ SceneRoots:
   - {fileID: 868112862}
   - {fileID: 62793423}
   - {fileID: 456011367}
-  - {fileID: 336532601}
   - {fileID: 1481711430}
   - {fileID: 1339887461}
   - {fileID: 531457979}
