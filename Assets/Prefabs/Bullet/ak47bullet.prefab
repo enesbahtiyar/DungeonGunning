@@ -101,11 +101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a7a0d891bce2a4085dbc9c5529119a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 40
   lifetime: 3
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
+  canRicochet: 1
+  maxRicochetCount: 60
 --- !u!50 &5207563071302164792
 Rigidbody2D:
   serializedVersion: 5

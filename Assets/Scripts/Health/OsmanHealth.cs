@@ -13,21 +13,37 @@ public class OsmanHealth : MonoBehaviour
     public AudioClip deathSound;
 
     public Image healthImage;
-    public TextMeshProUGUI healthText;
+    //public TextMeshProUGUI healthText;
 
     private EnemyBase enemyBase;
+    public GameObject DiePanel;
+    public Button closebutton, restartButton;
     void Start()
     {
+        maxHealth = PlayerStats.Instance.maxHealth.Value;
         health = maxHealth;
         enemyBase = GetComponent<EnemyBase>();
-    }
-
-    void Update()
-    {
+        if (entityType == EntityType.Player && DiePanel != null)
+        {
+            DiePanel.SetActive(false);
+            if (closebutton != null)
+                closebutton.onClick.AddListener(CloseDiePanel);
+            if (restartButton != null)
+                restartButton.onClick.AddListener(PlayAgain);
+        }
         if (healthImage != null)
             healthImage.fillAmount = health / maxHealth;
-        if (healthText != null)
-            healthText.text = $"{health} / {maxHealth}";
+    }
+    public void CloseDiePanel()
+    {
+        if (entityType == EntityType.Player && DiePanel != null)
+        {
+            DiePanel.SetActive(false);
+        }
+    }
+    public void PlayAgain()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 
     public void IncreaseHealth(float amount)
@@ -37,6 +53,8 @@ public class OsmanHealth : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(damageSound, transform.position);
         }
+        if (healthImage != null)
+            healthImage.fillAmount = health / maxHealth;
     }
 
     public void DecreaseHealth(float amount)
@@ -48,6 +66,8 @@ public class OsmanHealth : MonoBehaviour
         }
 
         health = Mathf.Max(health - amount, 0);
+        PopupSpawner.Instance.ShowPopup(transform.position, amount.ToString(), Color.red);
+
         if (health <= 0)
         {
             OnDeath();
@@ -59,6 +79,8 @@ public class OsmanHealth : MonoBehaviour
                 enemyBase.TakeDamage();
             }
         }
+        if (healthImage != null)
+            healthImage.fillAmount = health / maxHealth;
     }
 
     void OnDeath()
@@ -76,8 +98,13 @@ public class OsmanHealth : MonoBehaviour
         }
         else if (entityType == EntityType.Player)
         {
-            //buraya da player ölünce yapılacak işlemler yazarız
+            if (DiePanel != null)
+            {
+                DiePanel.SetActive(true);
+            }
+            // Player ölünce yapılacak işlemler
             Debug.Log("Player has died.");
+            
         }
     }
 }

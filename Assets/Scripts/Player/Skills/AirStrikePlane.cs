@@ -57,6 +57,7 @@ public class AirStrikePlane : MonoBehaviour
             {
                 if (hitCollider.TryGetComponent<OsmanHealth>(out OsmanHealth health))
                 {
+                    if(health.entityType != EntityType.AI) continue; 
                     health.DecreaseHealth(damage);
                 }
             }
