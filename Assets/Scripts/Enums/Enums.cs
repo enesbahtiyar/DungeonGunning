@@ -1,6 +1,6 @@
 public enum StatType
 {
-    Health,
+    MaxHealth,
     AttackPower,
     FireRate,
     MoveSpeed,

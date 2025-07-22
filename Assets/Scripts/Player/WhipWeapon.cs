@@ -52,7 +52,7 @@ public class WhipWeapon: MonoBehaviour
         {
             OsmanHealth health = colliders[i].GetComponent<OsmanHealth>();
 
-            if (health != null)
+            if (health != null && health.entityType == EntityType.AI)
             {
                 health.DecreaseHealth(whipDamage);
             }
