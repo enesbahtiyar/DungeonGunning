@@ -19,6 +19,7 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
 
     public event Action<int> OnLevelUp;
     public event Action<int, int> OnXPChanged;
+    public event Action<int> OnCoinAdded;
     public Stat cooldownModifier;
 
     private void Start()
@@ -90,6 +91,6 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     public void AddCoins(int amount)
     {
         coinCount += amount;
-        Debug.Log("Altýn eklendi! Þu anki altýn: " + coinCount);
+        OnCoinAdded?.Invoke(coinCount);
     }
 }
