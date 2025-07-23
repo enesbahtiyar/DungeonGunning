@@ -8,16 +8,16 @@ public class Weapon
 {
     public string name;
     public bool ranged;
-    public bool isAutomatic = false;    
+    public bool isAutomatic = false;       // Basılı tutarak ateş edilsin mi?
     public float damage;
-    public float fireRate;                 
+    public float fireRate;                 // Saniyede mermi sayısı
     public GameObject bulletPrefab;
     public float bulletFireDuration;
-    public bool bought = false;            
+    public bool bought = false;            // Silah satın alındı mı?
 
     [Header("Shotgun Settings")]
-    public int bulletPerShot = 1;         
-    public float spreadAngle = 5f;         
+    public int bulletPerShot = 1;          // Pompalı için bir atışta kaç mermi?
+    public float spreadAngle = 5f;         // Mermilerin saçılma açısı
 
     [Header("Ammo Settings")]
     public int magazineSize = 10;
@@ -29,7 +29,7 @@ public class Weapon
     public AudioClip fireSound;
     public ParticleSystem fireParticle;
     public Transform firePoint;
-    public GameObject activeweaponPrefab;  
+    public GameObject activeweaponPrefab;  // Sahnedeki silah modeli
 }
 
 public class OsmanAttack : MonoBehaviour
@@ -56,6 +56,7 @@ public class OsmanAttack : MonoBehaviour
         mainCamera = Camera.main;
         LoadWeapons();
 
+        // İlk satın alınmış silahı seç
         for (int i = 0; i < weapons.Count; i++)
         {
             if (weapons[i].bought)
@@ -93,33 +94,30 @@ public class OsmanAttack : MonoBehaviour
 
     void HandleWeaponSwitchInput()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && IsWeaponAvailable(0)) SetActiveWeapon(0);
-        if (Input.GetKeyDown(KeyCode.Alpha2) && IsWeaponAvailable(1)) SetActiveWeapon(1);
-        if (Input.GetKeyDown(KeyCode.Alpha3) && IsWeaponAvailable(2)) SetActiveWeapon(2);
-    }
-    
-    bool IsWeaponAvailable(int index)
-    {
-        if (index < 0 || index >= weapons.Count) return false;
-        return weapons[index].bought;
+        if (Input.GetKeyDown(KeyCode.Alpha1) && weapons.Count > 0 && weapons[0].bought) SetActiveWeapon(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2) && weapons.Count > 1 && weapons[1].bought) SetActiveWeapon(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3) && weapons.Count > 2 && weapons[2].bought) SetActiveWeapon(2);
     }
 
     void SetActiveWeapon(int index)
     {
         if (index < 0 || index >= weapons.Count || !weapons[index].bought) return;
 
+        // Tüm silah modellerini kapat
         foreach (Weapon w in weapons)
         {
             if (w.activeweaponPrefab != null)
                 w.activeweaponPrefab.SetActive(false);
         }
 
+        // Yeni aktif silahı ayarla
         activeWeaponIndex = index;
         activeWeapon = weapons[activeWeaponIndex];
 
         if (activeWeapon.activeweaponPrefab != null)
             activeWeapon.activeweaponPrefab.SetActive(true);
 
+        // UI'yi güncelle
         UpdateAmmoUI();
     }
 
