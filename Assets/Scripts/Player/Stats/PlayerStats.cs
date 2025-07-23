@@ -85,4 +85,11 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
             _ => throw new ArgumentOutOfRangeException(nameof(statType), statType, null)
         };
     }
+    public int coinCount = 0; // Þu anki altýn sayýsý
+
+    public void AddCoins(int amount)
+    {
+        coinCount += amount;
+        Debug.Log("Altýn eklendi! Þu anki altýn: " + coinCount);
+    }
 }

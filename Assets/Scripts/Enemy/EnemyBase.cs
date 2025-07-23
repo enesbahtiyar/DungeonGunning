@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,6 +12,11 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Collider2D hitbox;
     [SerializeField] private GameObject xpOrb;
+    [SerializeField] private GameObject coinPrefab;          
+    [SerializeField] private float coinDropChance = 0.3f;    
+
+    [SerializeField] private GameObject healthOrbPrefab;     
+    [SerializeField] private float healthDropChance = 0.05f; 
     public int xpReward;
     private float currentHealth;
     [SerializeField, Tooltip("Attack Per Second")] private float attackRate;
@@ -110,19 +115,39 @@ public class EnemyBase : MonoBehaviour
             animator.SetTrigger("isIdle");
         }
     }
-    public virtual void Die()
+   
+      public virtual void Die()
     {
         if (isDead) return;
         isDead = true;
-        //Death animation?
-        //Coin drop or exp reward?
+
         hitbox.enabled = false;
         animator.SetTrigger("isDead");
         Invoke("DeactivateObject", 2f);
-        Instantiate(xpOrb,transform.position,Quaternion.identity).GetComponent<XpOrb>().xpAmount=xpReward;
-        PlayerStats.Instance.GainXp(10);
-        
+
+        // 🟢 Oyuncuya direkt XP veriyoruz
+        PlayerStats.Instance.GainXp(xpReward);
+
+        // 🔵 %20 ihtimalle XP orb düşür
+        if (Random.value < 0.2f && xpOrb != null)
+        {
+            GameObject xp = Instantiate(xpOrb, transform.position, Quaternion.identity);
+            xp.GetComponent<XpOrb>().xpAmount = xpReward;
+        }
+
+        // 🟡 %30 ihtimalle Coin düşür
+        if (Random.value < coinDropChance && coinPrefab != null)
+        {
+            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        }
+
+        // ❤️ %5 ihtimalle Health orb düşür
+        if (Random.value < healthDropChance && healthOrbPrefab != null)
+        {
+            Instantiate(healthOrbPrefab, transform.position, Quaternion.identity);
+        }
     }
+
 
     public void DeactivateObject()
     {
@@ -157,4 +182,5 @@ public class EnemyBase : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         movementSpeed = baseMovementSpeed;
     }
+
 }
