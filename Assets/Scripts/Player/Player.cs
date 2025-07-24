@@ -8,7 +8,7 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(PolygonCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(OsmanHealth))]
 public class Player : MonoBehaviour
 {
     [HideInInspector] public PlayerDetailsSO playerDetails;
