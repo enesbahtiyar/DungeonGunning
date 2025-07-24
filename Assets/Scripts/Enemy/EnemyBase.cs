@@ -13,7 +13,8 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private Collider2D hitbox;
     [SerializeField] private GameObject xpOrb;
     [SerializeField] private GameObject coinPrefab;          
-    [SerializeField] private float coinDropChance = 0.3f;    
+    public float coinDropChance = 0.3f;    
+    public int coinValue = 10;    
 
     [SerializeField] private GameObject healthOrbPrefab;     
     [SerializeField] private float healthDropChance = 0.05f; 
@@ -138,7 +139,12 @@ public class EnemyBase : MonoBehaviour
         // 🟡 %30 ihtimalle Coin düşür
         if (Random.value < coinDropChance && coinPrefab != null)
         {
-            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+            GameObject droppedCoin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+
+            if (droppedCoin != null)
+            {
+                droppedCoin.GetComponent<Coin>().coinValue = coinValue;
+            }
         }
 
         // ❤️ %5 ihtimalle Health orb düşür
