@@ -19,6 +19,7 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
 
     public event Action<int> OnLevelUp;
     public event Action<int, int> OnXPChanged;
+    public event Action<int> OnCoinAdded;
     public Stat cooldownModifier;
 
     private void Start()
@@ -84,5 +85,12 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
             
             _ => throw new ArgumentOutOfRangeException(nameof(statType), statType, null)
         };
+    }
+    public int coinCount = 0; // Þu anki altýn sayýsý
+
+    public void AddCoins(int amount)
+    {
+        coinCount += amount;
+        OnCoinAdded?.Invoke(coinCount);
     }
 }
