@@ -50,6 +50,7 @@ public class OsmanAttack : MonoBehaviour
 
     private SpriteRenderer weaponSpriteRenderer;
     private bool isReloading = false;
+    private bool canShoot = false;
 
     void Start()
     {
@@ -66,9 +67,24 @@ public class OsmanAttack : MonoBehaviour
             }
         }
     }
+    private void OnEnable()
+    {
+        GameManager.Instance.OnGameStateChanged += GameManager_OnGameStateChanged;
+    }
+
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameStateChanged -= GameManager_OnGameStateChanged;
+    }
+    private void GameManager_OnGameStateChanged(GameState obj)
+    {
+        canShoot = obj == GameState.Playing;
+    }
 
     void Update()
     {
+        if (!canShoot) return;
         HandleWeaponSwitchInput();
         UpdateWeaponPosition();
 

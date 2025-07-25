@@ -1,12 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class OsmanHareket : MonoBehaviour
 {
-    
+
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] public float rotationSpeed = 10f;
-    
+
     [Header("Camera Settings")]
     [SerializeField] public float cameraFollowSpeed = 5f;
     [SerializeField] public Vector3 cameraOffset = new Vector3(0, 0, -10f);
@@ -15,15 +15,15 @@ public class OsmanHareket : MonoBehaviour
     private Camera mainCamera;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    
+
     [HideInInspector] public Vector2 moveDirection;
     private Vector2 mousePosition;
     private string lastPlayedAnimation;
 
     [HideInInspector] public float lastVerticalVector;
     [HideInInspector] public float lastHorizontalVector;
-    // [SerializeField]private BackgroundScroller backgroundScroller;
 
+    private bool canMove = true;
     void Start()
     {
         moveSpeed = PlayerStats.Instance.movementSpeed.Value;
@@ -31,12 +31,30 @@ public class OsmanHareket : MonoBehaviour
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
+
         PlayAnimation("IdleDown");
     }
+    private void OnEnable()
+    {
+        GameManager.Instance.OnGameStateChanged += GameManager_OnGameStateChanged;
+    }
 
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameStateChanged -= GameManager_OnGameStateChanged;
+    }
+    private void GameManager_OnGameStateChanged(GameState obj)
+    {
+        canMove = obj == GameState.Playing;
+    }
     void Update()
     {
+        if (!canMove)
+        {
+            moveDirection = Vector2.zero;
+            return;
+        }
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
@@ -51,7 +69,7 @@ public class OsmanHareket : MonoBehaviour
         }
 
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        
+
         UpdateAnimations();
 
     }
@@ -60,7 +78,7 @@ public class OsmanHareket : MonoBehaviour
     {
         MoveCharacter();
     }
-    
+
     void LateUpdate()
     {
         FollowCamera();
@@ -71,17 +89,17 @@ public class OsmanHareket : MonoBehaviour
         rb.linearVelocity = moveDirection * moveSpeed;
 
     }
-    
+
     private void FollowCamera()
     {
         if (mainCamera == null)
             return;
-            
+
         Vector3 targetPosition = transform.position + cameraOffset;
-        
+
         mainCamera.transform.position = Vector3.Lerp(
-            mainCamera.transform.position, 
-            targetPosition, 
+            mainCamera.transform.position,
+            targetPosition,
             cameraFollowSpeed * Time.deltaTime
         );
         // if (moveDirection != Vector2.zero)
@@ -89,19 +107,19 @@ public class OsmanHareket : MonoBehaviour
         //     backgroundScroller.ScrollBackGround(transform);
         // }
     }
-    
+
     private void UpdateAnimations()
     {
         if (animator == null)
             return;
-            
+
         float speed = moveDirection.magnitude;
-        
+
         Vector2 lookDirection = mousePosition - (Vector2)transform.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        
+
         if (angle < 0) angle += 360;
-        
+
         if (speed < 0.1f)
         {
             if (angle >= 315 || angle < 45)
@@ -149,16 +167,16 @@ public class OsmanHareket : MonoBehaviour
             }
         }
     }
-    
+
     private void PlayAnimation(string animationName)
     {
         if (lastPlayedAnimation == animationName)
             return;
-            
+
         animator.Play(animationName);
-        
+
         lastPlayedAnimation = animationName;
     }
-    
+
 
 }

@@ -98,6 +98,7 @@ public class OsmanHealth : MonoBehaviour
         }
         else if (entityType == EntityType.Player)
         {
+            GameManager.Instance.SetState(GameState.GameOver);
             //Eğer oyuncu öldüyse burada bir event çalışsın bu event mesela oyunun olduğu state'i değiştirsin oyunun state'i game over olduğu zaman bi kodda kontroller yapılsın bu kontroller işte silahı
             //kapat düşmanları dondur oyuncuyu dondur gibi gibi 
             if (DiePanel != null)
