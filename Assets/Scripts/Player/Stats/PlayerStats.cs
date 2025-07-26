@@ -38,6 +38,7 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
 
             ApplyLevelUpBonusses();
             OnLevelUp?.Invoke(Level);
+            LevelUpManager.Instance.ShowUpgradeChoices(Level);
             OnXPChanged?.Invoke(CurrentXP, XPToNextLevel);
         }
     }
