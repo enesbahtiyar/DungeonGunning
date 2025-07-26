@@ -51,12 +51,15 @@ public class OsmanAttack : MonoBehaviour
     private SpriteRenderer weaponSpriteRenderer;
     private bool isReloading = false;
     private bool canShoot = false;
-
+    private void Awake()
+    {
+ 
+    }
     void Start()
     {
         mainCamera = Camera.main;
         LoadWeapons();
-
+       GameManager.Instance.OnGameStateChanged += GameManager_OnGameStateChanged;
         // İlk satın alınmış silahı seç
         for (int i = 0; i < weapons.Count; i++)
         {
@@ -67,12 +70,6 @@ public class OsmanAttack : MonoBehaviour
             }
         }
     }
-    private void OnEnable()
-    {
-        GameManager.Instance.OnGameStateChanged += GameManager_OnGameStateChanged;
-    }
-
-
     private void OnDisable()
     {
         GameManager.Instance.OnGameStateChanged -= GameManager_OnGameStateChanged;

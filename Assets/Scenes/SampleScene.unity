@@ -1233,6 +1233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f998091ec6b91f4399caa3d71e37bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelText: {fileID: 854198422}
+  coinText: {fileID: 1381918923}
+  xp: {fileID: 1152256507}
 --- !u!114 &570526928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3782,10 +3785,10 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 570526925}
   - {fileID: 4722497542731843825}
   - {fileID: 768520068}
   - {fileID: 117540497}
-  - {fileID: 570526925}
   - {fileID: 519420032}
   - {fileID: 868112862}
   - {fileID: 62793423}

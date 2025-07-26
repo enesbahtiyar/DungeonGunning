@@ -33,13 +33,8 @@ public class OsmanHareket : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         PlayAnimation("IdleDown");
-    }
-    private void OnEnable()
-    {
         GameManager.Instance.OnGameStateChanged += GameManager_OnGameStateChanged;
     }
-
-
     private void OnDisable()
     {
         GameManager.Instance.OnGameStateChanged -= GameManager_OnGameStateChanged;
