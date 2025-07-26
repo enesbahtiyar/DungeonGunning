@@ -225,7 +225,7 @@ public class OsmanAttack : MonoBehaviour
             GameObject bullet = Instantiate(activeWeapon.bulletPrefab, activeWeapon.firePoint.position, Quaternion.identity);
             OsmanBullet bulletScript = bullet.GetComponent<OsmanBullet>();
             if (bulletScript != null)
-                bulletScript.Fire(finalDirection, activeWeapon.damage);
+                bulletScript.Fire(finalDirection, activeWeapon.damage+PlayerStats.Instance.attackPower.Value);
         }
     }
 
