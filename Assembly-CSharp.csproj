@@ -76,6 +76,7 @@
     <Compile Include="Assets\Prefabs\Enemy\Coin.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Scripts\MultiSceneAssetLogger.cs" />
     <Compile Include="Assets\Scripts\OptimizationCodes\CompanionPools.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\Scripts\Health\Health.cs" />
@@ -101,8 +102,8 @@
     <Compile Include="Assets\Scripts\DestroyMarker.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\UI\CardSlotUI.cs" />
-    <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\LevelUpCardSO\UpgradeCard.cs" />
+    <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Scripts\Player\OsmanAttack.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenü.cs" />
