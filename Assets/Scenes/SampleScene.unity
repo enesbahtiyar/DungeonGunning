@@ -1280,8 +1280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4722497542731843826}
-  spawnInterval: 0.01
-  spawnOffset: {x: 20, y: 10}
+  spawnInterval: 0.1
+  spawnOffset: {x: 10, y: 5}
   enemyPool: {fileID: 570526926}
 --- !u!4 &570526925
 Transform:
@@ -1313,10 +1313,10 @@ MonoBehaviour:
   pools:
   - tag: Wolf
     prefab: {fileID: 2611816920069350289, guid: cbb8d112f0a096d4f89e43f2f6369670, type: 3}
-    size: 100
+    size: 200
   - tag: Demon
     prefab: {fileID: 8388334429492171828, guid: d361546d62b1f1441af89aa9d7f35614, type: 3}
-    size: 100
+    size: 200
   player: {fileID: 4722497542731843826}
   parentTransform: {fileID: 1339887461}
 --- !u!114 &570526927
@@ -3137,6 +3137,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c18255eaf74f2b4899a9e6ba1119415, type: 3}
+--- !u!1 &1656239721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1656239723}
+  - component: {fileID: 1656239722}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1656239722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656239721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0cb41176768fc4689d876372337b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainFolderName: MAZE
+  scenes:
+  - {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+--- !u!4 &1656239723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656239721}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.071129, y: -2.499771, z: -0.02660664}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1677471118
 GameObject:
   m_ObjectHideFlags: 0
@@ -4032,6 +4079,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3997381671835904715, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: XPToNextLevel
+      value: 999999
+      objectReference: {fileID: 0}
     - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: weapons.Array.data[0].bought
       value: 1
@@ -4070,7 +4121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7743957408051903832, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: health
-      value: 100
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 7743957408051903832, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: DiePanel
@@ -4078,7 +4129,7 @@ PrefabInstance:
       objectReference: {fileID: 1271909332}
     - target: {fileID: 7743957408051903832, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: maxHealth
-      value: 100
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 7743957408051903832, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: closebutton
@@ -4312,3 +4363,4 @@ SceneRoots:
   - {fileID: 456011367}
   - {fileID: 1481711430}
   - {fileID: 1339887461}
+  - {fileID: 1656239723}

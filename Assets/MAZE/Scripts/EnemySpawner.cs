@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawner Ayarları")]
     [SerializeField] private GameObject player;
     [SerializeField] private float spawnInterval = 2f;
-    [SerializeField] private Vector2 spawnOffset = new Vector2(20f, 10f);
+    [SerializeField] private Vector2 spawnOffset = new Vector2(10f, 5f);
     [SerializeField] private ObjectPooler enemyPool;
     private float timer;
 
@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
         float spawnX = Random.Range(playerPos.x - spawnOffset.x, playerPos.x + spawnOffset.x);
         float spawnY = Random.Range(playerPos.y - spawnOffset.y, playerPos.y + spawnOffset.y);
 
-        if (spawnX <= 5 && spawnX >= -5 || spawnY <= 2f && spawnY >= -2f)
+        if (spawnX <= 4 && spawnX >= -4 || spawnY <= 1f && spawnY >= -1f)
         {
             spawnX = spawnX * 2;
             spawnY = spawnY * 2;    

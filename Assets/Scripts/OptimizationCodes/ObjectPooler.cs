@@ -11,7 +11,7 @@ public class ObjectPooler : MonoBehaviour
         public GameObject prefab;
         public int size;
     }
-    
+
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
     public GameObject player;
@@ -23,14 +23,14 @@ public class ObjectPooler : MonoBehaviour
 
         foreach (Pool pool in pools)
         {
-            Queue<GameObject>objectPool = new Queue<GameObject>();
-            
-            for(int i = 0; i < pool.size; i++)
+            Queue<GameObject> objectPool = new Queue<GameObject>();
+
+            for (int i = 0; i < pool.size; i++)
             {
                 GameObject obj = Instantiate(pool.prefab, parentTransform);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
-                
+
                 if (obj.TryGetComponent(out EnemyBase baseScript))
                 {
                     baseScript.player = player;
@@ -38,7 +38,7 @@ public class ObjectPooler : MonoBehaviour
             }
 
 
-            poolDictionary.Add(pool.tag, objectPool); 
+            poolDictionary.Add(pool.tag, objectPool);
         }
     }
 
@@ -53,13 +53,12 @@ public class ObjectPooler : MonoBehaviour
         else
         {
             GameObject objectToPool = poolDictionary[tag].Dequeue();
-            
             objectToPool.SetActive(true);
             objectToPool.transform.position = position;
             objectToPool.transform.rotation = rotation;
             poolDictionary[tag].Enqueue(objectToPool);
-
             return objectToPool;
+
         }
     }
 }

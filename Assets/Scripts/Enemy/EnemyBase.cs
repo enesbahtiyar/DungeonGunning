@@ -27,8 +27,9 @@ public class EnemyBase : MonoBehaviour
     private bool isDead = false;
     private bool playerInHitRange;
     private float baseMovementSpeed;
-
-
+    
+    
+    private EnemyPool enemyPool;
 
     [SerializeField] EnemyState state;
     public virtual void Start()
@@ -37,6 +38,7 @@ public class EnemyBase : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         state = EnemyState.chasing;
+        enemyPool = GameObject.Find("GameManager").GetComponent<EnemyPool>();
         movementSpeed = Random.Range(movementSpeed * 0.8f, movementSpeed * 1.2f);
 
     }
@@ -126,6 +128,8 @@ public class EnemyBase : MonoBehaviour
         animator.SetTrigger("isDead");
         Invoke("DeactivateObject", 2f);
 
+        
+        
         // 🟢 Oyuncuya direkt XP veriyoruz
         PlayerStats.Instance.GainXp(xpReward);
 
