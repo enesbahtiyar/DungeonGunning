@@ -27,3 +27,10 @@ public enum EnemyState
     attacking,
     die
 }
+public enum GameState
+{
+    MainMenu,
+    Playing,
+    Paused,
+    GameOver
+}

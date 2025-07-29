@@ -44,23 +44,14 @@ playerStats = PlayerStats.Instance;
     }
     void Attack()
     {
-        if (playerStats != null)
+        // Oyuncunun OsmanHealth bileşenini bul ve can azalt
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
         {
-            // Oyuncuya hasar vermek için negatif bir StatModifier oluşturarak PlayerStats kullanabiliriz
-            StatModifier damageModifier = new StatModifier(-attackDamage, ModifierType.Flat, this);
-            
-            // MaxHealth stat'ine negatif modifier uygulayarak can azalma işlemi gerçekleştiririrz
-            playerStats.ApplyModifier(StatType.MaxHealth, damageModifier);
-            
-            // Oyuncunun OsmanHealth bileşenini bul ve can azalt
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
+            OsmanHealth osmanHealth = player.GetComponent<OsmanHealth>();
+            if (osmanHealth != null)
             {
-                OsmanHealth osmanHealth = player.GetComponent<OsmanHealth>();
-                if (osmanHealth != null)
-                {
-                    osmanHealth.DecreaseHealth(attackDamage);
-                }
+                osmanHealth.DecreaseHealth(attackDamage);
             }
         }
     }
