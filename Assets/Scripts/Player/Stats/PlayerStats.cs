@@ -16,7 +16,7 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     public int Level = 1;
     public int CurrentXP = 0;
     public int XPToNextLevel = 100;
-
+    
     public event Action<int> OnLevelUp;
     public event Action<int, int> OnXPChanged;
     public event Action<int> OnCoinAdded;
@@ -87,7 +87,7 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
             _ => throw new ArgumentOutOfRangeException(nameof(statType), statType, null)
         };
     }
-    public int coinCount = 0; // Þu anki altýn sayýsý
+    public int coinCount = 0; // ï¿½u anki altï¿½n sayï¿½sï¿½
 
     public void AddCoins(int amount)
     {
