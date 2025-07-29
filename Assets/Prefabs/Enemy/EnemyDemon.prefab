@@ -130,7 +130,7 @@ Animator:
   m_GameObject: {fileID: 8388334429492171828}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 973c0c4dc044f634bb9aa801b328dbbc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 74aafd73d2480f44d9a19f7012432687, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   hitbox: {fileID: 92543246532371753}
   xpOrb: {fileID: 2165805785838558576, guid: 1902d7ec5d95df246a0f5d4d0fe559b0, type: 3}
   coinPrefab: {fileID: 7464848167564519705, guid: 4fde928c2d5b1d2458650e3e85afe8c1, type: 3}
-  coinDropChance: 0.7
+  coinDropChance: 1
   healthOrbPrefab: {fileID: 0}
   healthDropChance: 0.05
   xpReward: 0
