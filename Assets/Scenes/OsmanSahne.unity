@@ -1283,11 +1283,11 @@ MonoBehaviour:
   enemyPool: {fileID: 570526926}
   timerDisplay: {fileID: 570526930}
   spawnSettings:
-  - poolIndex: 0
+  - poolTag: Wolf
     startTime: 0
     interval: 0.5
     timer: 0
-  - poolIndex: 1
+  - poolTag: Demon
     startTime: 30
     interval: 1
     timer: 0
@@ -1386,7 +1386,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1213993050}
-  maxMinutes: 0
   maxSeconds: 60
 --- !u!114 &570526931
 MonoBehaviour:

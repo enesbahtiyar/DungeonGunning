@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     [System.Serializable]
     public class EnemySpawnSetting
     {
-        public int poolIndex; 
+        public string poolTag; 
         public float startTime;
         public float interval;
         [HideInInspector] public float timer;
@@ -42,14 +42,14 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (setting.timer >= setting.interval)
                 {
-                    SpawnEnemy(setting.poolIndex);
+                    SpawnEnemy(setting.poolTag);
                     setting.timer = 0f;
                 }
             }
         }
     }
 
-    void SpawnEnemy(int poolIndex)
+    void SpawnEnemy(string poolTag)
     {
         Vector3 playerPos = player.transform.position;
         float spawnX = Random.Range(playerPos.x - 20f, playerPos.x + 20f);
@@ -62,6 +62,6 @@ public class EnemySpawner : MonoBehaviour
         }
 
         Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
-        enemyPool.spawnFromPoolByIndex(poolIndex, spawnPosition, Quaternion.identity);
+        enemyPool.spawnFromPool(poolTag, spawnPosition, Quaternion.identity);
     }
 }
