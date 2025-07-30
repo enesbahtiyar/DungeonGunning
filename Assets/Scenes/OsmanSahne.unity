@@ -1321,7 +1321,7 @@ MonoBehaviour:
   pools:
   - tag: Wolf
     prefab: {fileID: 2611816920069350289, guid: cbb8d112f0a096d4f89e43f2f6369670, type: 3}
-    size: 100
+    size: 200
   - tag: Demon
     prefab: {fileID: 8388334429492171828, guid: d361546d62b1f1441af89aa9d7f35614, type: 3}
     size: 100

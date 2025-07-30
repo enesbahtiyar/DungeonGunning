@@ -4,8 +4,7 @@ using TMPro;
 public class TimerDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;
-    [SerializeField] private int maxMinutes = 2; 
-    [SerializeField] private int maxSeconds = 0; 
+    [SerializeField] private int maxSeconds = 120; 
 
     private float elapsedTime = 0f;
     private int seconds = 0;
@@ -31,7 +30,8 @@ public class TimerDisplay : MonoBehaviour
 
             UpdateTimerUI();
 
-            if (minutes > maxMinutes || (minutes == maxMinutes && seconds >= maxSeconds))
+            int totalElapsedSeconds = minutes * 60 + seconds;
+            if (totalElapsedSeconds >= maxSeconds)
             {
                 maxTimeReached = true;
                 Debug.Log("Maksimum süre !");
@@ -41,9 +41,10 @@ public class TimerDisplay : MonoBehaviour
 
     void UpdateTimerUI()
     {
-                 //timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);   ibrahim eski timertext. dilerseniz silebilirsiniz
-
-        string maxTimeStr = string.Format("{0:00}:{1:00}", maxMinutes, maxSeconds);
+        int maxMinutes = maxSeconds / 60;
+        int maxSecondsRemainder = maxSeconds % 60;
+        string maxTimeStr = string.Format("{0:00}:{1:00}", maxMinutes, maxSecondsRemainder);
+        
         if (maxTimeReached)
         {
             timerText.text = maxTimeStr + " / " + maxTimeStr;
