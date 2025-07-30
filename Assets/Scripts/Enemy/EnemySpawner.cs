@@ -8,7 +8,8 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawner Ayarları")]
     [SerializeField] private GameObject player;
     [SerializeField] private ObjectPooler enemyPool;
-    [SerializeField] private TimerDisplay timerDisplay; 
+    [SerializeField] private TimerDisplay timerDisplay;
+    [SerializeField] private OsmanHealth playerHealth; 
     [System.Serializable]
     public class EnemySpawnSetting
     {
@@ -23,6 +24,12 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        if (playerHealth != null && playerHealth.health <= 0)
+        {
+            DeactivateAllEnemies();
+            return;
+        }
+
         if (timerDisplay != null && timerDisplay.IsMaxTimeReached())
         {
             if (!spawningStopped)
@@ -63,5 +70,19 @@ public class EnemySpawner : MonoBehaviour
 
         Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
         enemyPool.spawnFromPool(poolTag, spawnPosition, Quaternion.identity);
+    }
+
+    void DeactivateAllEnemies()
+    {
+        foreach (var poolQueue in enemyPool.poolDictionary.Values)
+        {
+            foreach (var enemy in poolQueue)
+            {
+                if (enemy.activeInHierarchy)
+                {
+                    enemy.SetActive(false);
+                }
+            }
+        }
     }
 }

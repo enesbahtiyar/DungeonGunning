@@ -1282,14 +1282,15 @@ MonoBehaviour:
   player: {fileID: 4722497542731843826}
   enemyPool: {fileID: 570526926}
   timerDisplay: {fileID: 570526930}
+  playerHealth: {fileID: 4722497542731843842}
   spawnSettings:
   - poolTag: Wolf
     startTime: 0
-    interval: 0.5
+    interval: 0
     timer: 0
   - poolTag: Demon
-    startTime: 30
-    interval: 1
+    startTime: 2
+    interval: 0
     timer: 0
 --- !u!4 &570526925
 Transform:
@@ -4094,6 +4095,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7743957408051903832, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: sceneName
+      value: OsmanSahne
+      objectReference: {fileID: 0}
+    - target: {fileID: 7743957408051903832, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: closebutton
       value: 
       objectReference: {fileID: 521400443}
@@ -4116,6 +4121,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3668906100112735300, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
   m_PrefabInstance: {fileID: 4722497542731843825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4722497542731843842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7743957408051903832, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+  m_PrefabInstance: {fileID: 4722497542731843825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722497542731843826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca3503642ffdcf40b9ce79b7ae3bfea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5728893643391137918
 PrefabInstance:
   m_ObjectHideFlags: 0

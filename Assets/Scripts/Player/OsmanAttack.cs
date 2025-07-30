@@ -61,7 +61,9 @@ public class OsmanAttack : MonoBehaviour
     {
         mainCamera = Camera.main;
         LoadWeapons();
-       GameManager.Instance.OnGameStateChanged += GameManager_OnGameStateChanged;
+        GameManager.Instance.OnGameStateChanged += GameManager_OnGameStateChanged;
+        
+        GameManager_OnGameStateChanged(GameManager.Instance.GetCurrentState()); 
         
         // İlk satın alınmış silahı seç
         for (int i = 0; i < weapons.Count; i++)
