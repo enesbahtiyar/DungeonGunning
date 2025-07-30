@@ -1285,12 +1285,12 @@ MonoBehaviour:
   playerHealth: {fileID: 4722497542731843842}
   spawnSettings:
   - poolTag: Wolf
-    startTime: 0
-    interval: 0
+    startTime: 5
+    interval: 0.5
     timer: 0
   - poolTag: Demon
-    startTime: 2
-    interval: 0
+    startTime: 60
+    interval: 1
     timer: 0
 --- !u!4 &570526925
 Transform:
