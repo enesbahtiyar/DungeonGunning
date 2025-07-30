@@ -43,6 +43,19 @@ public class ObjectPooler : MonoBehaviour
     }
 
 
+    // Yeni: Index ile pooldan spawn et
+    public GameObject spawnFromPoolByIndex(int poolIndex, Vector3 position, Quaternion rotation)
+    {
+        if (poolIndex < 0 || poolIndex >= pools.Count)
+        {
+            Debug.LogWarning("Pool index geçersiz: " + poolIndex);
+            return null;
+        }
+
+        string tag = pools[poolIndex].tag;
+        return spawnFromPool(tag, position, rotation);
+    }
+
     public GameObject spawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))
@@ -50,16 +63,24 @@ public class ObjectPooler : MonoBehaviour
             Debug.LogWarning("Böyle bir pool yok " + tag);
             return null;
         }
-        else
+        
+        Queue<GameObject> pool = poolDictionary[tag];
+        int poolSize = pool.Count;
+        
+        for (int i = 0; i < poolSize; i++)
         {
-            GameObject objectToPool = poolDictionary[tag].Dequeue();
+            GameObject objectToPool = pool.Dequeue();
+            pool.Enqueue(objectToPool);
             
-            objectToPool.SetActive(true);
-            objectToPool.transform.position = position;
-            objectToPool.transform.rotation = rotation;
-            poolDictionary[tag].Enqueue(objectToPool);
-
-            return objectToPool;
+            if (!objectToPool.activeInHierarchy)
+            {
+                objectToPool.SetActive(true);
+                objectToPool.transform.position = position;
+                objectToPool.transform.rotation = rotation;
+                return objectToPool;
+            }
         }
+        
+        return null; // Tüm objeler aktif
     }
 }

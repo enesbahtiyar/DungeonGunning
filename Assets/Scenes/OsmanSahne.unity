@@ -1284,11 +1284,11 @@ MonoBehaviour:
   timerDisplay: {fileID: 570526930}
   spawnSettings:
   - poolIndex: 0
-    startTime: 0.5
-    interval: 0
+    startTime: 0
+    interval: 0.5
     timer: 0
   - poolIndex: 1
-    startTime: 1
+    startTime: 30
     interval: 1
     timer: 0
 --- !u!4 &570526925
@@ -1327,7 +1327,6 @@ MonoBehaviour:
     size: 100
   player: {fileID: 4722497542731843826}
   parentTransform: {fileID: 1339887461}
-  deactivateDistance: 30
 --- !u!114 &570526927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,7 +1373,6 @@ MonoBehaviour:
     size: 50
   player: {fileID: 4722497542731843826}
   parentTransform: {fileID: 1339887461}
-  deactivateDistance: 30
 --- !u!114 &570526930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4043,6 +4041,10 @@ PrefabInstance:
     - target: {fileID: 3668906100112735300, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997381671835904715, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: xpIncreasePercentage
+      value: 25.7
       objectReference: {fileID: 0}
     - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: weapons.Array.data[0].bought

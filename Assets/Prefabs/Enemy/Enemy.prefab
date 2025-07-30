@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f345c7024b58d345900bebb9e928a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.2
+  movementSpeed: 0.5
   hitRange: 1
   maxHealth: 50
   animator: {fileID: -7614098163693226987}
@@ -76,6 +76,10 @@ MonoBehaviour:
   xpReward: 20
   attackRate: 2
   player: {fileID: 0}
+  farFromPlayer: 1
+  speedBoostDistance: 15
+  normalDistance: 5
+  speedAmount: 4
   state: 0
 --- !u!114 &6268812619605526941
 MonoBehaviour:

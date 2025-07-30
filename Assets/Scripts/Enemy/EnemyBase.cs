@@ -26,8 +26,13 @@ public class EnemyBase : MonoBehaviour
     private bool isDead = false;
     private bool playerInHitRange;
     private float baseMovementSpeed;
-
-
+    
+    [Header("Speed Boost")]
+    public bool farFromPlayer = false;
+    [SerializeField] private float speedBoostDistance = 10f;
+    [SerializeField] private float normalDistance = 5f;
+    [SerializeField] private float speedAmount = 2f;
+    private bool isSpeedBoosted = false;
 
     [SerializeField] EnemyState state;
     public virtual void Start()
@@ -53,7 +58,13 @@ public class EnemyBase : MonoBehaviour
         {
             LookToPlayer();
             //TODO: Can be OPTIMIZED with SEP(Single Entry Point)
-            playerInHitRange = Vector2.Distance(player.transform.position, transform.position) < hitRange;
+            float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+            playerInHitRange = distanceToPlayer < hitRange;
+            
+            if (farFromPlayer)
+            {
+                HandleSpeedBoost(distanceToPlayer);
+            }
         }
         switch (state)
         {
@@ -181,6 +192,20 @@ public class EnemyBase : MonoBehaviour
         movementSpeed = 0;
         yield return new WaitForSeconds(0.5f);
         movementSpeed = baseMovementSpeed;
+    }
+    
+    private void HandleSpeedBoost(float distanceToPlayer)
+    {
+        if (!isSpeedBoosted && distanceToPlayer > speedBoostDistance)
+        {
+            movementSpeed = baseMovementSpeed * speedAmount;
+            isSpeedBoosted = true;
+        }
+        else if (isSpeedBoosted && distanceToPlayer <= normalDistance)
+        {
+            movementSpeed = baseMovementSpeed;
+            isSpeedBoosted = false;
+        }
     }
 
 }

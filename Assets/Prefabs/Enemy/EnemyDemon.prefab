@@ -225,6 +225,10 @@ MonoBehaviour:
   xpReward: 0
   attackRate: 3
   player: {fileID: 0}
+  farFromPlayer: 1
+  speedBoostDistance: 25
+  normalDistance: 15
+  speedAmount: 2
   state: 0
 --- !u!114 &6098587628497530063
 MonoBehaviour:

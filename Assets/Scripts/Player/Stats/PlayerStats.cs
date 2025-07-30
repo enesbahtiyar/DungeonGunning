@@ -16,6 +16,8 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     public int Level = 1;
     public int CurrentXP = 0;
     public int XPToNextLevel = 100;
+    [Range(0f, 100f)]
+    public float xpIncreasePercentage = 10f;
 
     public event Action<int> OnLevelUp;
     public event Action<int, int> OnXPChanged;
@@ -44,7 +46,9 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     }
     private int CalculateXPNeeded(int level)
     {
-        return (int)(100 * Mathf.Pow(1.1f, level - 1)); // Example formula for XP needed per level
+        // Eski metod: return (int)(100 * Mathf.Pow(1.1f, level - 1));
+        float multiplier = 1f + (xpIncreasePercentage / 100f);
+        return (int)(100 * Mathf.Pow(multiplier, level - 1));
     }
     public void ApplyLevelUpBonusses()
     {
@@ -87,7 +91,7 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
             _ => throw new ArgumentOutOfRangeException(nameof(statType), statType, null)
         };
     }
-    public int coinCount = 0; // Þu anki altýn sayýsý
+    public int coinCount = 0; // ï¿½u anki altï¿½n sayï¿½sï¿½
 
     public void AddCoins(int amount)
     {

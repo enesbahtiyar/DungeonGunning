@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Weapon
@@ -60,6 +62,7 @@ public class OsmanAttack : MonoBehaviour
         mainCamera = Camera.main;
         LoadWeapons();
        GameManager.Instance.OnGameStateChanged += GameManager_OnGameStateChanged;
+        
         // İlk satın alınmış silahı seç
         for (int i = 0; i < weapons.Count; i++)
         {
@@ -147,6 +150,7 @@ public class OsmanAttack : MonoBehaviour
     {
         if (activeWeapon == null || isReloading) return;
         if (Time.time - lastFireTime < 1f / activeWeapon.fireRate) return;
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
 
         Fire();
         lastFireTime = Time.time;
@@ -273,4 +277,6 @@ public class OsmanAttack : MonoBehaviour
         else
             bulletText.text = activeWeapon.currentAmmo + "/" + activeWeapon.totalAmmo;
     }
+
+
 }
