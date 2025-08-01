@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -28,6 +28,13 @@ public class EnemyBase : MonoBehaviour
     private bool playerInHitRange;
     private float baseMovementSpeed;
     
+    [Header("Speed Boost")]
+    public bool farFromPlayer = false;
+    [SerializeField] private float speedBoostDistance = 10f;
+    [SerializeField] private float normalDistance = 5f;
+    [SerializeField] private float speedAmount = 2f;
+    private bool isSpeedBoosted = false;
+    private bool playingState = false;
     
     private EnemyPool enemyPool;
 
@@ -45,23 +52,36 @@ public class EnemyBase : MonoBehaviour
 
     public void OnEnable()
     {
+        GameManager.Instance.OnGameStateChanged += Instance_OnGameStateChanged;
         ChangeEnemyState(EnemyState.chasing);
         isDead = false;
         hitbox.enabled = true;
     }
 
+    private void Instance_OnGameStateChanged(GameState obj)
+    {
+        playingState = obj == GameState.Playing;
+    }
+
     public virtual void Update()
     {
+        if (!playingState) return;
         if (!isDead)
         {
             LookToPlayer();
             //TODO: Can be OPTIMIZED with SEP(Single Entry Point)
-            playerInHitRange = Vector2.Distance(player.transform.position, transform.position) < hitRange;
+            float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+            playerInHitRange = distanceToPlayer < hitRange;
+            
+            if (farFromPlayer)
+            {
+                HandleSpeedBoost(distanceToPlayer);
+            }
         }
         switch (state)
         {
             case EnemyState.idle:
-
+                Idle();
                 break;
             case EnemyState.chasing:
                 ChasePlayer();
@@ -191,6 +211,20 @@ public class EnemyBase : MonoBehaviour
         movementSpeed = 0;
         yield return new WaitForSeconds(0.5f);
         movementSpeed = baseMovementSpeed;
+    }
+    
+    private void HandleSpeedBoost(float distanceToPlayer)
+    {
+        if (!isSpeedBoosted && distanceToPlayer > speedBoostDistance)
+        {
+            movementSpeed = baseMovementSpeed * speedAmount;
+            isSpeedBoosted = true;
+        }
+        else if (isSpeedBoosted && distanceToPlayer <= normalDistance)
+        {
+            movementSpeed = baseMovementSpeed;
+            isSpeedBoosted = false;
+        }
     }
 
 }
