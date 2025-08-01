@@ -33,7 +33,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private float normalDistance = 5f;
     [SerializeField] private float speedAmount = 2f;
     private bool isSpeedBoosted = false;
-
+    private bool playingState = false;
     [SerializeField] EnemyState state;
     public virtual void Start()
     {
@@ -47,13 +47,20 @@ public class EnemyBase : MonoBehaviour
 
     public void OnEnable()
     {
+        GameManager.Instance.OnGameStateChanged += Instance_OnGameStateChanged;
         ChangeEnemyState(EnemyState.chasing);
         isDead = false;
         hitbox.enabled = true;
     }
 
+    private void Instance_OnGameStateChanged(GameState obj)
+    {
+        playingState = obj == GameState.Playing;
+    }
+
     public virtual void Update()
     {
+        if (!playingState) return;
         if (!isDead)
         {
             LookToPlayer();
@@ -69,7 +76,7 @@ public class EnemyBase : MonoBehaviour
         switch (state)
         {
             case EnemyState.idle:
-
+                Idle();
                 break;
             case EnemyState.chasing:
                 ChasePlayer();

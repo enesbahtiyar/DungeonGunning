@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
+    <Compile Include="Assets\Scripts\Shop\ShopUI.cs" />
     <Compile Include="Assets\Scripts\Player\CurrentPlayerSO.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\Scripts\Shop\ShopCard.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Assets\Scripts\UI\TextPopup.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\OptimizationCodes\EnemyPool.cs" />
+    <Compile Include="Assets\Scripts\Shop\VendorTrigger.cs" />
     <Compile Include="Assets\Scripts\Bullet\OsmanBullet.cs" />
     <Compile Include="Assets\Scripts\UI\TimerDisplay.cs" />
     <Compile Include="Assets\Scripts\Player\Stats\Stat.cs" />

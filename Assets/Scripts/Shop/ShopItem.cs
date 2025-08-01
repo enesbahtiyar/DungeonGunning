@@ -14,7 +14,8 @@ public class ShopItem : ScriptableObject
         if (!string.IsNullOrEmpty(weaponName))
         {
             OsmanAttack attack = FindFirstObjectByType<OsmanAttack>();
-            if (attack != null && !attack.weaponDictionary.ContainsKey(weaponName))
+
+            if (attack != null && attack.weaponDictionary.ContainsKey(weaponName))
             {
                 attack.weaponDictionary[weaponName].bought = true;
                 Debug.Log("Weapon bought: " + weaponName);
