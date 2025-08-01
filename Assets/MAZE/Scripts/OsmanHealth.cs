@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class OsmanHealth : MonoBehaviour
 {
@@ -18,6 +18,7 @@ public class OsmanHealth : MonoBehaviour
     private EnemyBase enemyBase;
     public GameObject DiePanel;
     public Button closebutton, restartButton;
+    public string sceneName;
     void Start()
     {
         maxHealth = PlayerStats.Instance.maxHealth.Value;
@@ -43,7 +44,9 @@ public class OsmanHealth : MonoBehaviour
     }
     public void PlayAgain()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+
+       // SceneManager.LoadScene(sceneName);
     }
 
     public void IncreaseHealth(float amount)

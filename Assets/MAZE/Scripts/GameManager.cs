@@ -19,4 +19,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     }
 
+    public GameState GetCurrentState()
+    {
+        return currentGameState;
+    }
+
 }
