@@ -1601,8 +1601,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopCards:
-  - {fileID: 5326209255250594364}
   - {fileID: 693982654}
+  - {fileID: 5326209255250594364}
   - {fileID: 1803838549}
 --- !u!1 &650011541
 GameObject:
