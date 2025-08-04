@@ -70,8 +70,8 @@
     <Compile Include="Assets\Scripts\Player\Skills\AirStrike.cs" />
     <Compile Include="Assets\Scripts\Utilities\SingletonMonoBehaviour.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
-    <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\MAZE\Scripts\Player.cs" />
+    <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\MAZE\Scripts\EnemyPool.cs" />
@@ -94,8 +94,8 @@
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\Scripts\Events\EventHandler.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-    <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyDemon.cs" />
+    <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\MAZE\Scripts\PopupSpawner.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
@@ -105,8 +105,8 @@
     <Compile Include="Assets\MAZE\Scripts\OsmanHealth.cs" />
     <Compile Include="Assets\MAZE\Scripts\GameManager.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-    <Compile Include="Assets\Scripts\Shop\ShopCard.cs" />
     <Compile Include="Assets\MAZE\Scripts\DisableAfterTime.cs" />
+    <Compile Include="Assets\Scripts\Shop\ShopCard.cs" />
     <Compile Include="Assets\MAZE\Scripts\CardSlotUI.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\Scripts\Enums\Enums.cs" />
@@ -144,8 +144,8 @@
     <Compile Include="Assets\Scripts\Player\Stats\Stat.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\MAZE\Scripts\TimerDisplay.cs" />
     <Compile Include="Assets\MAZE\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\MAZE\Scripts\TimerDisplay.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
   </ItemGroup>
   <ItemGroup>

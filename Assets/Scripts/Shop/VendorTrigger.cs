@@ -10,14 +10,13 @@ public class VendorTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            List<ShopItem> chosenItems=new List<ShopItem>(possibleItems);
-            List<ShopItem>shopItems=new List<ShopItem>();
-            for (int i=0; i<itemsToShow&&chosenItems.Count>0; i++)
+            List<ShopItem> shopItems = new List<ShopItem>();
+
+            for (int i = 0; i < itemsToShow && i < possibleItems.Count; i++)
             {
-                int index=Random.Range(0, chosenItems.Count);
-                shopItems.Add(chosenItems[index]);
-                chosenItems.RemoveAt(index);
+                shopItems.Add(possibleItems[i]);
             }
+
             shopUI.ShowShop(shopItems);
             GameManager.Instance.SetState(GameState.Paused);
         }
