@@ -103,6 +103,9 @@ MonoBehaviour:
   DiePanel: {fileID: 0}
   closebutton: {fileID: 0}
   restartButton: {fileID: 0}
+  sceneName: 
+  healthIncreaseAmount: 100
+  healthIncreaseInterval: 5
 --- !u!212 &7691371765211451975
 SpriteRenderer:
   m_ObjectHideFlags: 0

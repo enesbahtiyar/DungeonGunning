@@ -147,3 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinValue: 1
+  valueIncreaseAmount: 5
+  valueIncreaseInterval: 10

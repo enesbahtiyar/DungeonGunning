@@ -1285,12 +1285,12 @@ MonoBehaviour:
   playerHealth: {fileID: 4722497542731843842}
   spawnSettings:
   - poolTag: Wolf
-    startTime: 5
-    interval: 0.5
+    startTime: 0
+    interval: 0.1
     timer: 0
   - poolTag: Demon
-    startTime: 60
-    interval: 1
+    startTime: 0
+    interval: 0.1
     timer: 0
 --- !u!4 &570526925
 Transform:
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1213993050}
-  maxSeconds: 60
+  maxSeconds: 600
 --- !u!114 &570526931
 MonoBehaviour:
   m_ObjectHideFlags: 0

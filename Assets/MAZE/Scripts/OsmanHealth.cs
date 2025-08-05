@@ -19,9 +19,22 @@ public class OsmanHealth : MonoBehaviour
     public GameObject DiePanel;
     public Button closebutton, restartButton;
     public string sceneName;
+    
+    [Header("Enemy Health Increase Settings")]
+    public float healthIncreaseAmount = 10f;
+    public float healthIncreaseInterval = 30f;
+    
+    private TimerDisplay timerDisplay;
+    private float lastHealthIncreaseTime = 0f;
+    private bool hasStartedHealthIncrease = false;
+    
     void Start()
     {
-        maxHealth = PlayerStats.Instance.maxHealth.Value;
+        if ( entityType == EntityType.Player)
+        {
+            maxHealth = PlayerStats.Instance.maxHealth.Value;
+        }
+        
         health = maxHealth;
         enemyBase = GetComponent<EnemyBase>();
         if (entityType == EntityType.Player && DiePanel != null)
@@ -34,7 +47,42 @@ public class OsmanHealth : MonoBehaviour
         }
         if (healthImage != null)
             healthImage.fillAmount = health / maxHealth;
+            
+        if (entityType == EntityType.AI)
+        {
+            timerDisplay = FindObjectOfType<TimerDisplay>();
+        }
     }
+    
+    void Update()
+    {
+        if (entityType == EntityType.AI && timerDisplay != null && gameObject.activeInHierarchy)
+        {
+            float currentTime = timerDisplay.GetElapsedTime();
+            
+            if (!hasStartedHealthIncrease && currentTime > 0)
+            {
+                hasStartedHealthIncrease = true;
+                lastHealthIncreaseTime = currentTime;
+            }
+            
+            if (hasStartedHealthIncrease && currentTime - lastHealthIncreaseTime >= healthIncreaseInterval)
+            {
+                IncreaseMaxHealthOverTime();
+                lastHealthIncreaseTime = currentTime;
+            }
+        }
+    }
+    
+    private void IncreaseMaxHealthOverTime()
+    {
+        maxHealth += healthIncreaseAmount;
+        health += healthIncreaseAmount;
+        
+        if (healthImage != null)
+            healthImage.fillAmount = health / maxHealth;
+    }
+    
     public void CloseDiePanel()
     {
         if (entityType == EntityType.Player && DiePanel != null)
