@@ -5,11 +5,14 @@ public class ShopItem : ScriptableObject
     public string itemName;
     public Sprite icon;
     public int cost;
+    public int damageUpgradeCost = 100;
+    public int fireRateUpgradeCost = 100;
     public string description;
 
     [Header("Weapon Unlock")]
     public string weaponName;
     private bool isBought = false;
+
     public void UnlockWeapon()
     {
         if (!string.IsNullOrEmpty(weaponName))
@@ -33,7 +36,6 @@ public class ShopItem : ScriptableObject
             if (attack != null && attack.weaponDictionary.ContainsKey(weaponName))
             {
                 return attack.weaponDictionary[weaponName].bought;
-
             }
         }
         return false;
@@ -43,10 +45,11 @@ public class ShopItem : ScriptableObject
         if (!string.IsNullOrEmpty(weaponName))
         {
             OsmanAttack attack = FindFirstObjectByType<OsmanAttack>();
-
+                Debug.Log("Damage Upgraded for: " + weaponName + " new value:" + attack.weaponDictionary[weaponName].damage);
             if (attack != null && attack.weaponDictionary.ContainsKey(weaponName))
             {
                 attack.weaponDictionary[weaponName].damage *= 1.4f;
+                Debug.Log("Damage Upgraded for: " + weaponName + " new value:" + attack.weaponDictionary[weaponName].damage);
             }
         }
     }
@@ -59,6 +62,7 @@ public class ShopItem : ScriptableObject
             if (attack != null && attack.weaponDictionary.ContainsKey(weaponName))
             {
                 attack.weaponDictionary[weaponName].fireRate *= 1.4f;
+                Debug.Log("Fire Rate Upgraded for: " + weaponName + " new value:" + attack.weaponDictionary[weaponName].fireRate);
             }
         }
     }

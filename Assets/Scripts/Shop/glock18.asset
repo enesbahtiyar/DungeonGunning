@@ -15,5 +15,7 @@ MonoBehaviour:
   itemName: glock18
   icon: {fileID: 21300000, guid: 76e1f7391bdef7243820880a793ddd5f, type: 3}
   cost: 20
+  damageUpgradeCost: 100
+  fireRateUpgradeCost: 100
   description: Glock 18 fena tabanca
   weaponName: glock18

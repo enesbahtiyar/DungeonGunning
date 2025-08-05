@@ -15,5 +15,7 @@ MonoBehaviour:
   itemName: ak-47
   icon: {fileID: 21300000, guid: c9ef79ba59db38f40bd698e29162563d, type: 3}
   cost: 250
+  damageUpgradeCost: 100
+  fireRateUpgradeCost: 100
   description: "Kele\u015F"
   weaponName: ak-47

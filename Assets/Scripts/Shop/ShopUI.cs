@@ -16,7 +16,9 @@ public class ShopUI : MonoBehaviour
             if (i < items.Count)
             {
                 int index = i;
-                shopCards[index].SetItem(items[index], () => BuyItem(items[index], index, items[index].cost), items[index].BuyStatus(), () => UpgradeDmg(items[index]), () => UpgradeFireRate(items[index]));
+                shopCards[index].SetItem(items[index], () => BuyItem(items[index], index, items[index].cost), 
+                    items[index].BuyStatus(), () => UpgradeDmg(index, items[index]), () => UpgradeFireRate(index, items[index]),
+                    items[index].damageUpgradeCost, items[index].fireRateUpgradeCost);
             }
         }
     }
@@ -38,12 +40,14 @@ public class ShopUI : MonoBehaviour
         gameObject.SetActive(false);
         GameManager.Instance.SetState(GameState.Playing);
     }
-    private void UpgradeDmg(ShopItem item)
+    private void UpgradeDmg(int _index,ShopItem item)
     {
+        shopCards[_index].UpgradeDamage();
         item.UpgradeDamage();
     }
-    private void UpgradeFireRate(ShopItem item)
+    private void UpgradeFireRate(int _index, ShopItem item)
     {
+       shopCards[_index].UpgradeFireRate();
         item.UpgradeFireRate();
     }
 }

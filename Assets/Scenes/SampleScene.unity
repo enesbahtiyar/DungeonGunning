@@ -2971,7 +2971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2671408350530540323, guid: ae35fb17eff62e3418ef5624cc5261f9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1459.6123
+      value: 1460
       objectReference: {fileID: 0}
     - target: {fileID: 2671408350530540323, guid: ae35fb17eff62e3418ef5624cc5261f9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3089,7 +3089,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4167,7 +4167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2671408350530540323, guid: ae35fb17eff62e3418ef5624cc5261f9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 959.6123
+      value: 960.00006
       objectReference: {fileID: 0}
     - target: {fileID: 2671408350530540323, guid: ae35fb17eff62e3418ef5624cc5261f9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4565,6 +4565,18 @@ PrefabInstance:
     - target: {fileID: 3668906100112735300, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997381671835904715, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: coinCount
+      value: 5555
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997381671835904715, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: XPToNextLevel
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997381671835904715, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: xpIncreasePercentage
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: weapons.Array.data[0].bought
@@ -4995,7 +5007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2671408350530540323, guid: ae35fb17eff62e3418ef5624cc5261f9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 459.6123
+      value: 460.00006
       objectReference: {fileID: 0}
     - target: {fileID: 2671408350530540323, guid: ae35fb17eff62e3418ef5624cc5261f9, type: 3}
       propertyPath: m_AnchoredPosition.y
