@@ -27,6 +27,7 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     private void Start()
     {
         ApplyModifier(StatType.AttackPower, new StatModifier(10, ModifierType.Flat, this));
+        OnCoinAdded?.Invoke(coinCount);
     }
     public void GainXp(int amount)
     {

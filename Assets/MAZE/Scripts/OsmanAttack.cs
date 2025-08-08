@@ -32,6 +32,7 @@ public class Weapon
     public ParticleSystem fireParticle;
     public Transform firePoint;
     public GameObject activeweaponPrefab;  // Sahnedeki silah modeli
+    public Sprite weaponSprite;
 }
 
 public class OsmanAttack : MonoBehaviour
@@ -48,23 +49,22 @@ public class OsmanAttack : MonoBehaviour
     private Weapon activeWeapon;
     private float lastFireTime;
     private Camera mainCamera;
+    public Image SelectedWeapon;
     public TextMeshProUGUI bulletText;
 
     private SpriteRenderer weaponSpriteRenderer;
     private bool isReloading = false;
     private bool canShoot = false;
-    private void Awake()
-    {
- 
-    }
+    [SerializeField] private GameObject reloadGameObj;
+    [SerializeField] private Image reloadFillImage;
     void Start()
     {
         mainCamera = Camera.main;
         LoadWeapons();
         GameManager.Instance.OnGameStateChanged += GameManager_OnGameStateChanged;
-        
-        GameManager_OnGameStateChanged(GameManager.Instance.GetCurrentState()); 
-        
+
+        GameManager_OnGameStateChanged(GameManager.Instance.GetCurrentState());
+
         // İlk satın alınmış silahı seç
         for (int i = 0; i < weapons.Count; i++)
         {
@@ -135,6 +135,7 @@ public class OsmanAttack : MonoBehaviour
         if (activeWeapon.activeweaponPrefab != null)
             activeWeapon.activeweaponPrefab.SetActive(true);
 
+        SelectedWeapon.sprite = activeWeapon.weaponSprite;
         // UI'yi güncelle
         UpdateAmmoUI();
     }
@@ -195,7 +196,24 @@ public class OsmanAttack : MonoBehaviour
         if (activeWeapon == null || activeWeapon.unlimitedAmmo || isReloading) yield break;
 
         isReloading = true;
-        yield return new WaitForSeconds(activeWeapon.reloadTime);
+
+        reloadGameObj.SetActive(true);
+        reloadFillImage.fillAmount = 0;
+
+        float reloadDur = activeWeapon.reloadTime;
+        float elapsedTime = 0;
+        while (elapsedTime < reloadDur)
+        {
+            elapsedTime += Time.deltaTime;
+            reloadFillImage.fillAmount = elapsedTime / reloadDur;
+
+           // Color reloadColor = Color.Lerp(Color.red, Color.green, reloadFillImage.fillAmount);
+            //reloadColor.a = 0.4f;
+            //reloadFillImage.color = reloadColor;
+            yield return null;
+        }
+
+        //  yield return new WaitForSeconds(activeWeapon.reloadTime);
 
         int neededAmmo = activeWeapon.magazineSize - activeWeapon.currentAmmo;
         if (activeWeapon.totalAmmo >= neededAmmo)
@@ -208,7 +226,8 @@ public class OsmanAttack : MonoBehaviour
             activeWeapon.currentAmmo += activeWeapon.totalAmmo;
             activeWeapon.totalAmmo = 0;
         }
-
+        reloadFillImage.fillAmount = 1f;
+        reloadGameObj.SetActive(false);
         isReloading = false;
         UpdateAmmoUI();
     }
@@ -231,7 +250,7 @@ public class OsmanAttack : MonoBehaviour
             GameObject bullet = Instantiate(activeWeapon.bulletPrefab, activeWeapon.firePoint.position, Quaternion.identity);
             OsmanBullet bulletScript = bullet.GetComponent<OsmanBullet>();
             if (bulletScript != null)
-                bulletScript.Fire(finalDirection, activeWeapon.damage+PlayerStats.Instance.attackPower.Value);
+                bulletScript.Fire(finalDirection, activeWeapon.damage + PlayerStats.Instance.attackPower.Value);
         }
     }
 

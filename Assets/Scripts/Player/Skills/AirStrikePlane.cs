@@ -45,7 +45,6 @@ public class AirStrikePlane : MonoBehaviour
     {
         for (int i = 0; i < numberOfBombs; i++)
         {
-            Debug.Log("Bomb dropped at: " + transform.position+" "+ i);
             if (explosionEffect != null)
             {
                GameObject bomb= Instantiate(explosionEffect, transform.position, Quaternion.Euler(0, 0, 90));

@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionEffect: {fileID: 4590152629530111221, guid: 99abff82c0a2f1b46b09e80ca14b39d6, type: 3}
-  explosionRadius: 2
-  bombDropRange: 3
-  damage: 3
-  numberOfBombs: 3
+  explosionRadius: 4
+  bombDropRange: 4
+  damage: 1000
+  numberOfBombs: 5
   bombDropInterval: 0.2

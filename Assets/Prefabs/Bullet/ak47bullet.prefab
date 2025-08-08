@@ -255,7 +255,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
-  canRicochet: 1
+  canRicochet: 0
   maxRicochetCount: 222
 --- !u!50 &5207563071302164792
 Rigidbody2D:

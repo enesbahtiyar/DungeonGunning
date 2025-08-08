@@ -37,5 +37,4 @@ public class UI : MonoBehaviour
     {
         coinText.text=arg1.ToString();
     }
-
 }
