@@ -201,8 +201,8 @@ MonoBehaviour:
   closebutton: {fileID: 0}
   restartButton: {fileID: 0}
   sceneName: 
-  healthIncreaseAmount: 100
-  healthIncreaseInterval: 10
+  healthIncreaseAmount: 10
+  healthIncreaseInterval: 30
 --- !u!114 &3808267088583741474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,11 +221,14 @@ MonoBehaviour:
   animator: {fileID: 5511654048025902193}
   hitbox: {fileID: 92543246532371753}
   xpOrb: {fileID: 2165805785838558576, guid: 1902d7ec5d95df246a0f5d4d0fe559b0, type: 3}
+  xpDropChance: 0.2
   coinPrefab: {fileID: 7464848167564519705, guid: 4fde928c2d5b1d2458650e3e85afe8c1, type: 3}
   coinDropChance: 1
   coinValue: 10
   healthOrbPrefab: {fileID: 0}
   healthDropChance: 0.05
+  ammoPrefab: {fileID: 2165805785838558576, guid: 6f45a0272c9bf034ca0ea3c401b62609, type: 3}
+  ammoDropChance: 1
   xpReward: 0
   attackRate: 3
   player: {fileID: 0}

@@ -132,10 +132,18 @@ public class OsmanAttack : MonoBehaviour
         activeWeaponIndex = index;
         activeWeapon = weapons[activeWeaponIndex];
 
-        if (activeWeapon.activeweaponPrefab != null)
+        if (activeWeapon != null && activeWeapon.activeweaponPrefab != null)
             activeWeapon.activeweaponPrefab.SetActive(true);
 
-        SelectedWeapon.sprite = activeWeapon.weaponSprite;
+        if (SelectedWeapon != null && activeWeapon != null && activeWeapon.weaponSprite != null)
+            SelectedWeapon.sprite = activeWeapon.weaponSprite;
+        else if (SelectedWeapon == null)
+            Debug.LogWarning("SelectedWeapon Image reference is missing in OsmanAttack!");
+        else if (activeWeapon == null)
+            Debug.LogWarning("Active weapon is null in OsmanAttack!");
+        else if (activeWeapon.weaponSprite == null)
+            Debug.LogWarning("Active weapon's weaponSprite is null in OsmanAttack!");
+
         // UI'yi güncelle
         UpdateAmmoUI();
     }

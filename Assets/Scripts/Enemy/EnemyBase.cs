@@ -12,12 +12,15 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Collider2D hitbox;
     [SerializeField] private GameObject xpOrb;
-    [SerializeField] private GameObject coinPrefab;          
-    public float coinDropChance = 0.3f;    
-    public int coinValue = 10;    
+    [SerializeField, Range(0f, 1f)] protected float xpDropChance = 0.2f; // XP orb drop chance
+    [SerializeField] private GameObject coinPrefab;
+    [SerializeField, Range(0f, 1f)] protected float coinDropChance = 0.3f; // Coin drop chance
+    public int coinValue = 10;
 
-    [SerializeField] private GameObject healthOrbPrefab;     
-    [SerializeField] private float healthDropChance = 0.05f; 
+    [SerializeField] private GameObject healthOrbPrefab;
+    [SerializeField, Range(0f, 1f)] protected float healthDropChance = 0.05f; // Health orb drop chance
+    [SerializeField] private GameObject ammoPrefab;
+    [SerializeField, Range(0f, 1f)] protected float ammoDropChance = 0.05f; // Ammo drop chance
     public int xpReward;
     private float currentHealth;
     [SerializeField, Tooltip("Attack Per Second")] private float attackRate;
@@ -153,28 +156,28 @@ public class EnemyBase : MonoBehaviour
         // 🟢 Oyuncuya direkt XP veriyoruz
         PlayerStats.Instance.GainXp(xpReward);
 
-        // 🔵 %20 ihtimalle XP orb düşür
-        if (Random.value < 0.2f && xpOrb != null)
+        // Sadece bir drop olacak şekilde sırayla kontrol et
+        float roll = Random.value;
+        if (roll < xpDropChance && xpOrb != null)
         {
             GameObject xp = Instantiate(xpOrb, transform.position, Quaternion.identity);
             xp.GetComponent<XpOrb>().xpAmount = xpReward;
         }
-
-        // 🟡 %30 ihtimalle Coin düşür
-        if (Random.value < coinDropChance && coinPrefab != null)
+        else if (roll < xpDropChance + coinDropChance && coinPrefab != null)
         {
             GameObject droppedCoin = Instantiate(coinPrefab, transform.position, Quaternion.identity);
-
             if (droppedCoin != null)
             {
                 droppedCoin.GetComponent<Coin>().coinValue = coinValue;
             }
         }
-
-        // ❤️ %5 ihtimalle Health orb düşür
-        if (Random.value < healthDropChance && healthOrbPrefab != null)
+        else if (roll < xpDropChance + coinDropChance + healthDropChance && healthOrbPrefab != null)
         {
             Instantiate(healthOrbPrefab, transform.position, Quaternion.identity);
+        }
+        else if (roll < xpDropChance + coinDropChance + healthDropChance + ammoDropChance && ammoPrefab != null)
+        {
+            Instantiate(ammoPrefab, transform.position, Quaternion.identity);
         }
     }
 
