@@ -241,16 +241,32 @@ public class OsmanAttack : MonoBehaviour
         if (activeWeapon.firePoint == null) return;
 
         // Pompalı tüfek gibi birden fazla mermi at
-        for (int i = 0; i < activeWeapon.bulletPerShot; i++)
+        // Sabit aralıklı açı ile mermi saçılması
+        float totalSpread = activeWeapon.spreadAngle; // Örneğin 60 derece
+        int bulletCount = activeWeapon.bulletPerShot;
+        if (bulletCount > 1)
         {
-            float angleOffset = Random.Range(-activeWeapon.spreadAngle, activeWeapon.spreadAngle);
-            Quaternion rotation = Quaternion.Euler(0, 0, angleOffset);
-            Vector2 finalDirection = rotation * baseDirection;
+            float angleStep = totalSpread / (bulletCount - 1);
+            float startAngle = -totalSpread / 2f;
+            for (int i = 0; i < bulletCount; i++)
+            {
+                float angleOffset = startAngle + i * angleStep;
+                Quaternion rotation = Quaternion.Euler(0, 0, angleOffset);
+                Vector2 finalDirection = rotation * baseDirection;
 
+                GameObject bullet = Instantiate(activeWeapon.bulletPrefab, activeWeapon.firePoint.position, Quaternion.identity);
+                OsmanBullet bulletScript = bullet.GetComponent<OsmanBullet>();
+                if (bulletScript != null)
+                    bulletScript.Fire(finalDirection, activeWeapon.damage + PlayerStats.Instance.attackPower.Value);
+            }
+        }
+        else
+        {
+            // Tek mermi için
             GameObject bullet = Instantiate(activeWeapon.bulletPrefab, activeWeapon.firePoint.position, Quaternion.identity);
             OsmanBullet bulletScript = bullet.GetComponent<OsmanBullet>();
             if (bulletScript != null)
-                bulletScript.Fire(finalDirection, activeWeapon.damage + PlayerStats.Instance.attackPower.Value);
+                bulletScript.Fire(baseDirection, activeWeapon.damage + PlayerStats.Instance.attackPower.Value);
         }
     }
 
