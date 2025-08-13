@@ -29,6 +29,7 @@ public class Weapon
     public bool unlimitedAmmo = false;
 
     public AudioClip fireSound;
+    public AudioClip reloadSound; // Yeniden doldurma sesi
     public ParticleSystem fireParticle;
     public Transform firePoint;
     public GameObject activeweaponPrefab;  // Sahnedeki silah modeli
@@ -55,11 +56,14 @@ public class OsmanAttack : MonoBehaviour
     private SpriteRenderer weaponSpriteRenderer;
     private bool isReloading = false;
     private bool canShoot = false;
+    private AudioSource audioSource;
     [SerializeField] private GameObject reloadGameObj;
     [SerializeField] private Image reloadFillImage;
     void Start()
     {
         mainCamera = Camera.main;
+        audioSource = gameObject.GetComponent<AudioSource>();
+        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
         LoadWeapons();
         GameManager.Instance.OnGameStateChanged += GameManager_OnGameStateChanged;
 
@@ -202,6 +206,9 @@ public class OsmanAttack : MonoBehaviour
     IEnumerator Reload()
     {
         if (activeWeapon == null || activeWeapon.unlimitedAmmo || isReloading) yield break;
+
+        if (activeWeapon.reloadSound != null) 
+            audioSource.PlayOneShot(activeWeapon.reloadSound);
 
         isReloading = true;
 

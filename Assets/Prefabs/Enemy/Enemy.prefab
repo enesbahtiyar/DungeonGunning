@@ -76,7 +76,7 @@ MonoBehaviour:
   healthOrbPrefab: {fileID: 0}
   healthDropChance: 0.05
   ammoPrefab: {fileID: 2165805785838558576, guid: 6f45a0272c9bf034ca0ea3c401b62609, type: 3}
-  ammoDropChance: 0.584
+  ammoDropChance: 1
   xpReward: 20
   attackRate: 2
   player: {fileID: 0}
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityType: 0
-  health: 0
-  maxHealth: 100
+  health: 25
+  maxHealth: 25
   damageSound: {fileID: 0}
   deathSound: {fileID: 0}
   healthImage: {fileID: 0}
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 1.5
-  attackCooldown: 1
+  attackCooldown: 2
   attackDamage: 1
   playerLayer:
     serializedVersion: 2

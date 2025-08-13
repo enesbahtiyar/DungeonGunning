@@ -1,8 +1,17 @@
 using UnityEngine;
+using System.Collections;
 
 public class BulletOrb : MonoBehaviour
 {
     public int bulletAmount = 5;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -23,7 +32,21 @@ public class BulletOrb : MonoBehaviour
                     weapon.currentAmmo += toAdd;
                 }
             }
-            Destroy(gameObject);
+            if (audioSource != null && audioSource.clip != null)
+            {
+                audioSource.Play();
+                StartCoroutine(DestroyAfterSound());
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
+    }
+    
+    private IEnumerator DestroyAfterSound()
+    {
+        yield return new WaitForSeconds(audioSource.clip.length);
+        Destroy(gameObject);
     }
 }

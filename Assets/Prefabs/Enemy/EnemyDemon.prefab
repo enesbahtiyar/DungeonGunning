@@ -192,8 +192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityType: 0
-  health: 100
-  maxHealth: 100
+  health: 50
+  maxHealth: 50
   damageSound: {fileID: 0}
   deathSound: {fileID: 0}
   healthImage: {fileID: 0}
@@ -250,8 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 1.5
-  attackCooldown: 1
-  attackDamage: 2
+  attackCooldown: 3
+  attackDamage: 5
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

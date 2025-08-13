@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Coin : MonoBehaviour
 {
@@ -8,12 +9,14 @@ public class Coin : MonoBehaviour
     public int valueIncreaseAmount = 1;
     public float valueIncreaseInterval = 30f;
     
+    public AudioSource audioSource;
     private TimerDisplay timerDisplay;
     private float lastValueIncreaseTime = 0f;
     private bool hasStartedValueIncrease = false;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         timerDisplay = FindObjectOfType<TimerDisplay>();
     }
     
@@ -41,10 +44,22 @@ public class Coin : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-
             PlayerStats.Instance.AddCoins(coinValue);
-
-            Destroy(gameObject);
+            if (audioSource != null)
+            {
+                audioSource.Play();
+                StartCoroutine(DestroyAfterSound());
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
+    }
+    
+    private IEnumerator DestroyAfterSound()
+    {
+        yield return new WaitForSeconds(audioSource.clip.length);
+        Destroy(gameObject);
     }
 }
