@@ -19,8 +19,8 @@ public class ShopCard : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fireRateUpgradeLevelText;
     public int damageUpgradeLevel = 1;
     public int fireRateUpgradeLevel = 1;
-    private int damageUpgradeCostValue = 100;
-    private int fireRateUpgradeCostValue = 100;
+    private int damageUpgradeCostValue = 0;
+    private int fireRateUpgradeCostValue = 0;
     public void SetItem(ShopItem item, System.Action onClick, bool isBought, System.Action onClickDmgUpgrade, System.Action onClickFireRateUpgrade,int _damageUpgradeCostValue,int _fireRateUpgradeCostValue)
     {
         icon.sprite = item.icon;
@@ -35,8 +35,14 @@ public class ShopCard : MonoBehaviour
         fireRateUpgaredeButton.onClick.AddListener(() => onClickFireRateUpgrade.Invoke());
         gameObject.SetActive(true);
         BuyStatus(isBought);
-        damageUpgradeCostValue= _damageUpgradeCostValue;
+
+        if(damageUpgradeCostValue==0)
+        damageUpgradeCostValue = _damageUpgradeCostValue;
+        if(fireRateUpgradeCostValue==0)
         fireRateUpgradeCostValue = _fireRateUpgradeCostValue;
+
+        damageUpgradeCost.text = damageUpgradeCostValue.ToString();
+        fireRateUpgradeCost.text = fireRateUpgradeCostValue.ToString();
 
     }
     public void BuyStatus(bool isBought)

@@ -45,11 +45,9 @@ public class ShopItem : ScriptableObject
         if (!string.IsNullOrEmpty(weaponName))
         {
             OsmanAttack attack = FindFirstObjectByType<OsmanAttack>();
-                Debug.Log("Damage Upgraded for: " + weaponName + " new value:" + attack.weaponDictionary[weaponName].damage);
             if (attack != null && attack.weaponDictionary.ContainsKey(weaponName))
             {
                 attack.weaponDictionary[weaponName].damage *= 1.4f;
-                Debug.Log("Damage Upgraded for: " + weaponName + " new value:" + attack.weaponDictionary[weaponName].damage);
             }
         }
     }
@@ -62,7 +60,6 @@ public class ShopItem : ScriptableObject
             if (attack != null && attack.weaponDictionary.ContainsKey(weaponName))
             {
                 attack.weaponDictionary[weaponName].fireRate *= 1.4f;
-                Debug.Log("Fire Rate Upgraded for: " + weaponName + " new value:" + attack.weaponDictionary[weaponName].fireRate);
             }
         }
     }
