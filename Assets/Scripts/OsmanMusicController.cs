@@ -19,9 +19,8 @@ public class OsmanMusicController : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
 
         audioSource.playOnAwake = false;
-        audioSource.spatialBlend = 0f; // 2D ses
+        audioSource.spatialBlend = 0f; 
 
-        // Başlangıç durumlarını kaydet
         foreach (var panel in panels)
         {
             if (panel != null)
@@ -40,7 +39,6 @@ public class OsmanMusicController : MonoBehaviour
 
             if (!previousState && currentState)
             {
-                Debug.Log($"[OsmanMusicController] Panel açıldı → {panel.name}");
                 AddListenersToPanel(panel);
             }
 
@@ -56,20 +54,15 @@ public class OsmanMusicController : MonoBehaviour
         {
             btn.onClick.RemoveListener(() => PlayClickSound(btn));
             btn.onClick.AddListener(() => PlayClickSound(btn));
-            Debug.Log($"[OsmanMusicController] Listener eklendi → {btn.name} (Panel: {panel.name})");
         }
     }
 
-    void PlayClickSound(Button clickedButton)
+    public void PlayClickSound(Button clickedButton)
     {
-        Debug.Log($"[OsmanMusicController] '{clickedButton.name}' tıklandı, ses çalınıyor...");
         if (clickSound != null)
         {
             audioSource.PlayOneShot(clickSound);
         }
-        else
-        {
-            Debug.LogWarning("[OsmanMusicController] Click sound atanmadı!");
-        }
+   
     }
 }

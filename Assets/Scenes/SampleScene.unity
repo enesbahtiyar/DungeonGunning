@@ -4412,7 +4412,6 @@ MonoBehaviour:
   audioSource: {fileID: 1630767121}
   panels:
   - {fileID: 636571665}
-  - {fileID: 1271909332}
 --- !u!82 &1630767121
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5781,7 +5780,7 @@ PrefabInstance:
       objectReference: {fileID: 1271909332}
     - target: {fileID: 7743957408051903832, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: maxHealth
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7743957408051903832, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: closebutton

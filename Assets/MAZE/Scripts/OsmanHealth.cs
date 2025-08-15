@@ -98,7 +98,7 @@ public class OsmanHealth : MonoBehaviour
 
     private IEnumerator ReloadSceneAfterDelay()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 
