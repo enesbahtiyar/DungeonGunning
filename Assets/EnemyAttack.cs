@@ -13,10 +13,17 @@ public class EnemyAttack : MonoBehaviour
     public StatModifier attackRangeModifier;
     public StatModifier attackDamageModifier;
     public StatModifier attackSpeedModifier;
+    public AudioClip attackSound;
+    private AudioSource audioSource;
 
     void Start()
     {
-playerStats = PlayerStats.Instance;
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        playerStats = PlayerStats.Instance;
         if (playerStats == null)
         {
             Debug.LogError("PlayerStats instance not found!");
@@ -44,6 +51,10 @@ playerStats = PlayerStats.Instance;
     }
     void Attack()
     {
+        if (attackSound != null)
+        {
+            audioSource.PlayOneShot(attackSound);
+        }
         // Oyuncunun OsmanHealth bileşenini bul ve can azalt
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)

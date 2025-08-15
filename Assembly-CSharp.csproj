@@ -108,6 +108,7 @@
     <Compile Include="Assets\MAZE\Scripts\LevelUpUI.cs" />
     <Compile Include="Assets\Scripts\LevelUpCardSO\UpgradeCard.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
+    <Compile Include="Assets\Scripts\OsmanMusicController.cs" />
     <Compile Include="Assets\MAZE\Scripts\UI.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\MAZE\Scripts\LevelUpManager.cs" />
@@ -142,6 +143,7 @@
     <None Include="Assets\_Plugins\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Fonts\Roboto-Bold - License.txt" />
     <None Include="Assets\_Plugins\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
+    <None Include="Assets\FREE SOUND PACK_TM(355)\READ_ME.txt" />
     <None Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Fonts\Unity - OFL.txt" />
     <None Include="Assets\_Plugins\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Prefabs\Flying Demon 2D Pixel Art\License.txt" />

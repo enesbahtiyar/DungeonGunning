@@ -24,8 +24,17 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     public event Action<int> OnCoinAdded;
     public Stat cooldownModifier;
 
+    [Header("Audio")]
+    public AudioClip levelUpSound;
+    private AudioSource audioSource;
+
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
         ApplyModifier(StatType.AttackPower, new StatModifier(10, ModifierType.Flat, this));
         OnCoinAdded?.Invoke(coinCount);
     }
@@ -37,6 +46,10 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
         {
             CurrentXP -= XPToNextLevel;
             Level++;
+            if (levelUpSound != null)
+            {
+                audioSource.PlayOneShot(levelUpSound);
+            }
             XPToNextLevel = CalculateXPNeeded(Level);
 
             ApplyLevelUpBonusses();

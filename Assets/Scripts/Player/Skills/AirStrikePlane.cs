@@ -16,7 +16,20 @@ public class AirStrikePlane : MonoBehaviour
     [SerializeField] private int numberOfBombs = 3;
     [SerializeField] private float bombDropInterval = 0.2f;
 
+        [Header("Audio")]
+    public AudioClip explosionSound;
+    private AudioSource audioSource;
+
     private bool isDroppingBombs = false;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     public void FlyTo(Vector3 target, float speed, Transform markerPos)
     {
@@ -48,6 +61,10 @@ public class AirStrikePlane : MonoBehaviour
             if (explosionEffect != null)
             {
                GameObject bomb= Instantiate(explosionEffect, transform.position, Quaternion.Euler(0, 0, 90));
+                if (explosionSound != null)
+                {
+                    audioSource.PlayOneShot(explosionSound);
+                }
                 Destroy(bomb, 1f); 
             }
 
@@ -67,8 +84,8 @@ public class AirStrikePlane : MonoBehaviour
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = new Color(1, 0, 0, 0.4f); // Yarý þeffaf kýrmýzý
-        Gizmos.DrawWireSphere(transform.position, explosionRadius); // Daire çiz
+        Gizmos.color = new Color(1, 0, 0, 0.4f); // Yarï¿½ ï¿½effaf kï¿½rmï¿½zï¿½
+        Gizmos.DrawWireSphere(transform.position, explosionRadius); // Daire ï¿½iz
     }
 #endif
 }

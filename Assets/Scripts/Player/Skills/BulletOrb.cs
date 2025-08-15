@@ -30,6 +30,7 @@ public class BulletOrb : MonoBehaviour
                 if (toAdd > 0)
                 {
                     weapon.currentAmmo += toAdd;
+                    weapon.totalAmmo += toAdd;
                 }
             }
             if (audioSource != null && audioSource.clip != null)

@@ -10,13 +10,31 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         currentGameState = GameState.Playing;
         OnGameStateChanged?.Invoke(currentGameState);
+        Time.timeScale = 1f; // Ensure game starts at normal speed
     }
     
     public void SetState(GameState newGameState)
     {
-        currentGameState=newGameState;
-        OnGameStateChanged?.Invoke(currentGameState);
+        if (currentGameState == newGameState) return;
 
+        currentGameState = newGameState;
+        
+        switch (currentGameState)
+        {
+            case GameState.Playing:
+                Time.timeScale = 1f;
+                break;
+            case GameState.Paused:
+                Time.timeScale = 0f;
+                break;
+            case GameState.GameOver:
+                Time.timeScale = 0f;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(newGameState), newGameState, null);
+        }
+        
+        OnGameStateChanged?.Invoke(currentGameState);
     }
 
     public GameState GetCurrentState()
@@ -25,3 +43,4 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     }
 
 }
+

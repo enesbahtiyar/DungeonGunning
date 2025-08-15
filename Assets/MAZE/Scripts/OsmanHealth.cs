@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -92,9 +93,13 @@ public class OsmanHealth : MonoBehaviour
     }
     public void PlayAgain()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        StartCoroutine(ReloadSceneAfterDelay());
+    }
 
-       // SceneManager.LoadScene(sceneName);
+    private IEnumerator ReloadSceneAfterDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 
     public void IncreaseHealth(float amount)
