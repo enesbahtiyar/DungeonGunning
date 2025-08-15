@@ -59,15 +59,12 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy(string poolTag)
     {
         Vector3 playerPos = player.transform.position;
-        float spawnX = Random.Range(playerPos.x - 20f, playerPos.x + 20f);
-        float spawnY = Random.Range(playerPos.y - 10f, playerPos.y + 10f);
-
-        if (spawnX <= 5 && spawnX >= -5 || spawnY <= 2f && spawnY >= -2f)
-        {
-            spawnX = spawnX * 2;
-            spawnY = spawnY * 2;
-        }
-
+        float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
+        float distance = Random.Range(8f, 20f);
+        
+        float spawnX = playerPos.x + Mathf.Cos(angle) * distance;
+        float spawnY = playerPos.y + Mathf.Sin(angle) * distance;
+        
         Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
         enemyPool.spawnFromPool(poolTag, spawnPosition, Quaternion.identity);
     }
