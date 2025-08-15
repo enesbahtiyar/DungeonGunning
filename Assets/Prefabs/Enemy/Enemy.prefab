@@ -70,14 +70,14 @@ MonoBehaviour:
   animator: {fileID: -7614098163693226987}
   hitbox: {fileID: 6657432979039210699}
   xpOrb: {fileID: 2165805785838558576, guid: 1902d7ec5d95df246a0f5d4d0fe559b0, type: 3}
-  xpDropChance: 0.2
+  xpDropChance: 0.5
   coinPrefab: {fileID: 7464848167564519705, guid: 4fde928c2d5b1d2458650e3e85afe8c1, type: 3}
-  coinDropChance: 1
+  coinDropChance: 0.4
   coinValue: 10
-  healthOrbPrefab: {fileID: 0}
-  healthDropChance: 0.05
+  healthOrbPrefab: {fileID: 2165805785838558576, guid: 318c2358fc776a34fa3da9f37acb0634, type: 3}
+  healthDropChance: 1
   ammoPrefab: {fileID: 2165805785838558576, guid: 6f45a0272c9bf034ca0ea3c401b62609, type: 3}
-  ammoDropChance: 0.301
+  ammoDropChance: 0.2
   xpReward: 20
   attackRate: 2
   player: {fileID: 0}
