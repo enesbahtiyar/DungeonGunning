@@ -82,8 +82,8 @@ MonoBehaviour:
   attackRate: 2
   player: {fileID: 0}
   farFromPlayer: 1
-  speedBoostDistance: 10
-  normalDistance: 5
+  speedBoostDistance: 25
+  normalDistance: 15
   speedAmount: 4
   state: 0
 --- !u!114 &6268812619605526941
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 1.5
   attackCooldown: 2
-  attackDamage: 0
+  attackDamage: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
