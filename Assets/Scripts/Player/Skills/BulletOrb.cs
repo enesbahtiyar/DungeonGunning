@@ -24,14 +24,7 @@ public class BulletOrb : MonoBehaviour
             if (attack != null && attack.weapons.Count > attack.activeWeaponIndex)
             {
                 var weapon = attack.weapons[attack.activeWeaponIndex];
-                int maxAmmo = weapon.magazineSize;
-                int current = weapon.currentAmmo;
-                int toAdd = Mathf.Min(bulletAmount, maxAmmo - current);
-                if (toAdd > 0)
-                {
-                    weapon.currentAmmo += toAdd;
-                    weapon.totalAmmo += toAdd;
-                }
+                weapon.totalAmmo += bulletAmount;
             }
             if (audioSource != null && audioSource.clip != null)
             {

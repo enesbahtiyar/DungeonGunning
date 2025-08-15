@@ -5707,6 +5707,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3997381671835904715, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: coinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b76df7448ad637b48ff64660243907b, type: 3}
+    - target: {fileID: 3997381671835904715, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: levelUpSound
       value: 
       objectReference: {fileID: 8300000, guid: dcf8338b1181e90769e915205b3280be, type: 3}

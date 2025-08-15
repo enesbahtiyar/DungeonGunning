@@ -26,6 +26,7 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
 
     [Header("Audio")]
     public AudioClip levelUpSound;
+    public AudioClip coinSound;
     private AudioSource audioSource;
 
     private void Start()
@@ -111,5 +112,9 @@ public class PlayerStats : SingletonMonoBehaviour<PlayerStats>
     {
         coinCount += amount;
         OnCoinAdded?.Invoke(coinCount);
+        if (coinSound != null)
+        {
+            audioSource.PlayOneShot(coinSound);
+        }
     }
 }
