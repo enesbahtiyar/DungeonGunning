@@ -25307,6 +25307,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2336366628909709409, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3668906100112735300, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -25359,6 +25363,10 @@ PrefabInstance:
       propertyPath: levelUpSound
       value: 
       objectReference: {fileID: 8300000, guid: dcf8338b1181e90769e915205b3280be, type: 3}
+    - target: {fileID: 3997381671835904715, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: XPToNextLevel
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4576251910288862506, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: bulletText
       value: 
@@ -25410,6 +25418,10 @@ PrefabInstance:
     - target: {fileID: 5397883846010309740, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747742562709637335, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6360201286061434831, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
       propertyPath: m_FillAmount
