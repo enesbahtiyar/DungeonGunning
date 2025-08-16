@@ -12,7 +12,11 @@ public class SkillController : MonoBehaviour
     private bool airstrikeOnCooldown = false;
     private GameObject currentMarker;
     private bool isTargeting = false;
-
+    [SerializeField] private GameObject knifes;
+    [SerializeField] private float knifesDeactiveTime = 10;
+    [SerializeField] private Image knifesCooldownImg;
+    [SerializeField] private float knifesCooldownTime;
+    private bool knifesOnCooldown = false;
     [SerializeField] private CoolDownHandler coolDownHandler;
 
 
@@ -44,6 +48,14 @@ public class SkillController : MonoBehaviour
                 isTargeting = false;
                 currentMarker = null;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4)&&!knifesOnCooldown)
+        {
+            knifesOnCooldown = true;
+            knifes.GetComponent<KnifesOsman>().deactiveTimer = knifesDeactiveTime;
+            knifes.SetActive(true);
+            knifesCooldownImg.gameObject.SetActive(true);
+            coolDownHandler.StartCoolDown(knifesCooldownImg, knifesCooldownTime, () => knifesOnCooldown = false); ;
         }
     }
 }

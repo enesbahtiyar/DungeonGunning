@@ -6,7 +6,11 @@ public class KnifesOsman : MonoBehaviour
     public float rotationSpeed = 50f;
     public float damage = 10f;
     public LayerMask enemyLayer;
-
+    [HideInInspector]public float deactiveTimer;
+    private void OnEnable()
+    {
+        Invoke(nameof(DeactiveKnifes), deactiveTimer);
+    }
     void Start()
     {
         if (player == null)
@@ -36,6 +40,10 @@ public class KnifesOsman : MonoBehaviour
             transform.position = player.position;
             transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
         }
+    }
+    private void DeactiveKnifes()
+    {
+        gameObject.SetActive(false);
     }
 }
 
