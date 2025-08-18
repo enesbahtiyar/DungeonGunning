@@ -21,7 +21,7 @@ public class ShopCard : MonoBehaviour
     public int fireRateUpgradeLevel = 1;
     private int damageUpgradeCostValue = 0;
     private int fireRateUpgradeCostValue = 0;
-    public void SetItem(ShopItem item, System.Action onClick, bool isBought, System.Action onClickDmgUpgrade, System.Action onClickFireRateUpgrade,int _damageUpgradeCostValue,int _fireRateUpgradeCostValue)
+    public void SetItem(ShopItem item, System.Action onClick, bool isBought, System.Action onClickDmgUpgrade, System.Action onClickFireRateUpgrade, int _damageUpgradeCostValue, int _fireRateUpgradeCostValue)
     {
         icon.sprite = item.icon;
         nameText.text = item.name;
@@ -36,13 +36,26 @@ public class ShopCard : MonoBehaviour
         gameObject.SetActive(true);
         BuyStatus(isBought);
 
-        if(damageUpgradeCostValue==0)
-        damageUpgradeCostValue = _damageUpgradeCostValue;
-        if(fireRateUpgradeCostValue==0)
-        fireRateUpgradeCostValue = _fireRateUpgradeCostValue;
-
-        damageUpgradeCost.text = damageUpgradeCostValue.ToString();
-        fireRateUpgradeCost.text = fireRateUpgradeCostValue.ToString();
+        if (damageUpgradeCostValue == 0)
+            damageUpgradeCostValue = _damageUpgradeCostValue;
+        if (fireRateUpgradeCostValue == 0)
+            fireRateUpgradeCostValue = _fireRateUpgradeCostValue;
+        if (damageUpgradeLevel >= 5)
+        {
+            damageUpgradeCost.text = "-";
+        }
+        else
+        {
+            damageUpgradeCost.text = damageUpgradeCostValue.ToString();
+        }
+        if (fireRateUpgradeLevel >= 5)
+        {
+            fireRateUpgradeCost.text = "-";
+        }
+        else
+        {
+            fireRateUpgradeCost.text = fireRateUpgradeCostValue.ToString();
+        }
 
     }
     public void BuyStatus(bool isBought)
@@ -60,6 +73,11 @@ public class ShopCard : MonoBehaviour
     }
     public void UpgradeDamage()
     {
+        if (damageUpgradeLevel >= 5)
+        {
+            Debug.Log("Damage Upgrade is already maxed!");
+            return;
+        }
         if (PlayerStats.Instance.coinCount < damageUpgradeCostValue)
         {
             Debug.LogWarning("Not Enough Coins for Damage Upgrade");
@@ -70,11 +88,25 @@ public class ShopCard : MonoBehaviour
 
 
         damageUpgradeLevel++;
-        damageUpgradeLevelText.text = "Level: " + damageUpgradeLevel;
-        damageUpgradeCost.text = damageUpgradeCostValue.ToString();
+        if (damageUpgradeLevel >= 5)
+        {
+            damageUpgradeLevelText.text = "MAXED";
+            damageUpgradeCost.text = "-";
+            damageUpgaredeButton.interactable = false;
+        }
+        else
+        {
+            damageUpgradeLevelText.text = "Level: " + damageUpgradeLevel;
+            damageUpgradeCost.text = damageUpgradeCostValue.ToString();
+        }
     }
     public void UpgradeFireRate()
     {
+        if (fireRateUpgradeLevel >= 5)
+        {
+            Debug.Log("Fire Rate Upgrade is already maxed!");
+            return;
+        }
         if (PlayerStats.Instance.coinCount < fireRateUpgradeCostValue)
         {
             Debug.LogWarning("Not Enough Coins for Fire Rate Upgrade");
@@ -84,7 +116,16 @@ public class ShopCard : MonoBehaviour
         fireRateUpgradeCostValue = (int)(fireRateUpgradeCostValue * 1.2f);
 
         fireRateUpgradeLevel++;
-        fireRateUpgradeLevelText.text = "Level: " + fireRateUpgradeLevel;
-        fireRateUpgradeCost.text = fireRateUpgradeCostValue.ToString();
+        if (fireRateUpgradeLevel >= 5)
+        {
+            fireRateUpgradeLevelText.text = "MAXED";
+            fireRateUpgradeCost.text = "-";
+            fireRateUpgaredeButton.interactable = false;
+        }
+        else
+        {
+            fireRateUpgradeLevelText.text = "Level: " + fireRateUpgradeLevel;
+            fireRateUpgradeCost.text = fireRateUpgradeCostValue.ToString();
+        }
     }
 }
