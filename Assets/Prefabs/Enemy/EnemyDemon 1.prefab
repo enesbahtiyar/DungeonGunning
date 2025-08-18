@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0.2
-  hitRange: 1
+  hitRange: 2
   maxHealth: 100
   animator: {fileID: 5511654048025902193}
   hitbox: {fileID: 92543246532371753}
@@ -231,7 +231,7 @@ MonoBehaviour:
   ammoPrefab: {fileID: 2165805785838558576, guid: 6f45a0272c9bf034ca0ea3c401b62609, type: 3}
   ammoDropChance: 0.493
   xpReward: 0
-  attackRate: 3
+  attackRate: 1
   player: {fileID: 0}
   farFromPlayer: 1
   speedBoostDistance: 15
@@ -251,9 +251,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackType: 1
-  attackRange: 5
-  attackCooldown: 5
-  attackDamage: 25
+  attackRange: 1.5
+  attackCooldown: 1.5
+  attackDamage: 10
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -261,9 +261,9 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: d6195cb91af5b1db781bf8564703f1cd, type: 3}
   projectilePrefab: {fileID: 1987004643825835704, guid: d94a4efb80b72ea42ba2588616eb098f, type: 3}
   firePoint: {fileID: 7102909393746357391}
-  projectileSpeed: 1.5
-  projectileLifetime: 10
-  rangedAttackRange: 10
+  projectileSpeed: 6
+  projectileLifetime: 2
+  rangedAttackRange: 4
 --- !u!82 &3347763355103632724
 AudioSource:
   m_ObjectHideFlags: 0

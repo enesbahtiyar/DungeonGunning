@@ -2834,11 +2834,11 @@ MonoBehaviour:
     interval: 0.5
     timer: 0
   - poolTag: Demon
-    startTime: 25
+    startTime: 5
     interval: 1
     timer: 0
   - poolTag: EnemyDemon1
-    startTime: 50
+    startTime: 5
     interval: 2
     timer: 0
 --- !u!4 &570526925

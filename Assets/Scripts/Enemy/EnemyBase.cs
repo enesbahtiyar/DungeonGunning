@@ -156,6 +156,11 @@ public class EnemyBase : MonoBehaviour
         {
             animator.SetTrigger("isAttacking");
             nextAttackTime = Time.time + 1f / attackRate;
+            
+            if (enemyAttack != null)
+            {
+                enemyAttack.TryAttack();
+            }
         }
         else
         {

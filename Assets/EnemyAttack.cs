@@ -51,18 +51,17 @@ public class EnemyAttack : MonoBehaviour
         attackSpeedModifier = new StatModifier(0.2f, ModifierType.Flat, this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool CanAttack()
     {
-        float currentAttackRange = attackType == AttackType.Ranged ? rangedAttackRange : attackRange;
-        
-        if (Physics2D.OverlapCircle(transform.position, currentAttackRange, playerLayer))
+        return Time.time >= lastAttackTime + attackCooldown;
+    }
+    
+    public void TryAttack()
+    {
+        if (CanAttack())
         {
-            if (Time.time >= lastAttackTime + attackCooldown)
-            {
-                Attack();
-                lastAttackTime = Time.time;
-            }
+            Attack();
+            lastAttackTime = Time.time;
         }
     }
     void Attack()

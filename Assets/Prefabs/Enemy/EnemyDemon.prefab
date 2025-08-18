@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0.2
-  hitRange: 1
+  hitRange: 1.5
   maxHealth: 50
   animator: {fileID: 5511654048025902193}
   hitbox: {fileID: 92543246532371753}
@@ -251,8 +251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackType: 0
-  attackRange: 10
-  attackCooldown: 3
+  attackRange: 1
+  attackCooldown: 1.6
   attackDamage: 5
   playerLayer:
     serializedVersion: 2
@@ -262,6 +262,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   firePoint: {fileID: 0}
   projectileSpeed: 10
+  projectileLifetime: 3
+  rangedAttackRange: 5
 --- !u!82 &3347763355103632724
 AudioSource:
   m_ObjectHideFlags: 0

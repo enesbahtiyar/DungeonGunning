@@ -79,7 +79,7 @@ MonoBehaviour:
   ammoPrefab: {fileID: 2165805785838558576, guid: 6f45a0272c9bf034ca0ea3c401b62609, type: 3}
   ammoDropChance: 0.2
   xpReward: 20
-  attackRate: 2
+  attackRate: 1
   player: {fileID: 0}
   farFromPlayer: 1
   speedBoostDistance: 25
@@ -263,14 +263,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a64739618a450449c02c31110058b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 1.5
-  attackCooldown: 2
+  attackType: 0
+  attackRange: 0.8
+  attackCooldown: 1
   attackDamage: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
   playerStats: {fileID: 0}
   attackSound: {fileID: 8300000, guid: 71d8bb83e08cb88d7864496465c7edb2, type: 3}
+  projectilePrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  projectileSpeed: 5
+  projectileLifetime: 3
+  rangedAttackRange: 5
 --- !u!82 &-6089987975939424178
 AudioSource:
   m_ObjectHideFlags: 0
