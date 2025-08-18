@@ -216,9 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f345c7024b58d345900bebb9e928a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.5
+  movementSpeed: 0.2
   hitRange: 1
-  maxHealth: 10
+  maxHealth: 100
   animator: {fileID: 5511654048025902193}
   hitbox: {fileID: 92543246532371753}
   xpOrb: {fileID: 2165805785838558576, guid: 1902d7ec5d95df246a0f5d4d0fe559b0, type: 3}
@@ -252,8 +252,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackType: 1
   attackRange: 5
-  attackCooldown: 2
-  attackDamage: 5
+  attackCooldown: 5
+  attackDamage: 25
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -263,9 +263,7 @@ MonoBehaviour:
   firePoint: {fileID: 7102909393746357391}
   projectileSpeed: 1.5
   projectileLifetime: 10
-  rangedAttackRange: 7
-  followRange: 15
-  keepDistance: 7
+  rangedAttackRange: 10
 --- !u!82 &3347763355103632724
 AudioSource:
   m_ObjectHideFlags: 0
