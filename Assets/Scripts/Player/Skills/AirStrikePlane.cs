@@ -63,6 +63,7 @@ public class AirStrikePlane : MonoBehaviour
                GameObject bomb= Instantiate(explosionEffect, transform.position, Quaternion.Euler(0, 0, 90));
                 if (explosionSound != null)
                 {
+                    audioSource.volume = PlayerPrefs.GetFloat("Volume_Sounds", 1f);
                     audioSource.PlayOneShot(explosionSound);
                 }
                 Destroy(bomb, 1f); 
