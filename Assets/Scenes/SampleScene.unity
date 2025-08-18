@@ -2827,13 +2827,17 @@ MonoBehaviour:
   player: {fileID: 4722497542731843826}
   enemyPool: {fileID: 570526926}
   timerDisplay: {fileID: 570526930}
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 4722497542731843843}
   spawnSettings:
   - poolTag: Wolf
-    startTime: 0.5
-    interval: 0
+    startTime: 55
+    interval: 1
     timer: 0
   - poolTag: Demon
+    startTime: 55
+    interval: 1
+    timer: 0
+  - poolTag: EnemyDemon1
     startTime: 1
     interval: 1
     timer: 0
@@ -2870,6 +2874,9 @@ MonoBehaviour:
     size: 100
   - tag: Demon
     prefab: {fileID: 8388334429492171828, guid: d361546d62b1f1441af89aa9d7f35614, type: 3}
+    size: 100
+  - tag: EnemyDemon1
+    prefab: {fileID: 8388334429492171828, guid: 680a5e0d35d234144ab13c484bf4881a, type: 3}
     size: 100
   player: {fileID: 4722497542731843826}
   parentTransform: {fileID: 1339887461}
@@ -6579,6 +6586,14 @@ MonoBehaviour:
   audioSource: {fileID: 1630767121}
   panels:
   - {fileID: 636571665}
+  - {fileID: 1111253448}
+  - {fileID: 1271909332}
+  pausePanel: {fileID: 1111253448}
+  backgroundMusic: {fileID: 1272999562}
+  backgroundSlider: {fileID: 461953166}
+  soundsSlider: {fileID: 1888184274}
+  sounds:
+  - {fileID: 4722497542731843839}
 --- !u!82 &1630767121
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8384,6 +8399,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3668906100112735300, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
   m_PrefabInstance: {fileID: 4722497542731843825}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &4722497542731843839 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5619770538449898221, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+  m_PrefabInstance: {fileID: 4722497542731843825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4722497542731843843 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7743957408051903832, guid: 1a2b0028f37cef84da757d3c9f8a5aa4, type: 3}
+  m_PrefabInstance: {fileID: 4722497542731843825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722497542731843826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca3503642ffdcf40b9ce79b7ae3bfea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5326209255250594363 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2671408350530540323, guid: ae35fb17eff62e3418ef5624cc5261f9, type: 3}

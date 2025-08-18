@@ -188,8 +188,7 @@ public class OsmanAttack : MonoBehaviour
             MeleeFire();
 
         if (activeWeapon.fireSound != null && activeWeapon.firePoint != null)
-            AudioSource.PlayClipAtPoint(activeWeapon.fireSound, activeWeapon.firePoint.position);
-
+            audioSource.PlayOneShot(activeWeapon.fireSound);
         if (activeWeapon.fireParticle != null && activeWeapon.firePoint != null)
         {
             ParticleSystem ps = Instantiate(activeWeapon.fireParticle, activeWeapon.firePoint.position, activeWeapon.firePoint.rotation);

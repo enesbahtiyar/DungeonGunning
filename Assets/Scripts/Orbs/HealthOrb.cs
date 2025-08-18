@@ -23,6 +23,7 @@ public class HealthOrb : MonoBehaviour
                 playerHealth.IncreaseHealth(healthValue);
                 if (audioSource != null && audioSource.clip != null)
                 {
+                    audioSource.volume = PlayerPrefs.GetFloat("Volume_Sounds", 1f);
                     audioSource.Play();
                     particleEffect.Play();
                     StartCoroutine(DestroyAfterSound());

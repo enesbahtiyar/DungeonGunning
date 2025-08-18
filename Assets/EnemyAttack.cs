@@ -1,7 +1,14 @@
 using UnityEngine;
-//Osman'ın Hasar sistemi ödevi
+
+public enum AttackType
+{
+    Melee,
+    Ranged
+}
+
 public class EnemyAttack : MonoBehaviour
 {
+    public AttackType attackType = AttackType.Melee;
     public float attackRange = 1.5f;
     public float attackCooldown = 1.0f;
     private float lastAttackTime = 0f;
@@ -15,6 +22,13 @@ public class EnemyAttack : MonoBehaviour
     public StatModifier attackSpeedModifier;
     public AudioClip attackSound;
     private AudioSource audioSource;
+    
+    [Header("Ranged Attack Settings")]
+    public GameObject projectilePrefab;
+    public Transform firePoint;
+    public float projectileSpeed = 5f;
+    public float projectileLifetime = 3f;
+    public float rangedAttackRange = 5f;
 
     void Start()
     {
@@ -40,7 +54,9 @@ public class EnemyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics2D.OverlapCircle(transform.position, attackRange, playerLayer))
+        float currentAttackRange = attackType == AttackType.Ranged ? rangedAttackRange : attackRange;
+        
+        if (Physics2D.OverlapCircle(transform.position, currentAttackRange, playerLayer))
         {
             if (Time.time >= lastAttackTime + attackCooldown)
             {
@@ -55,14 +71,34 @@ public class EnemyAttack : MonoBehaviour
         {
             audioSource.PlayOneShot(attackSound);
         }
-        // Oyuncunun OsmanHealth bileşenini bul ve can azalt
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
+        
+        if (attackType == AttackType.Melee)
         {
-            OsmanHealth osmanHealth = player.GetComponent<OsmanHealth>();
-            if (osmanHealth != null)
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
             {
-                osmanHealth.DecreaseHealth(attackDamage);
+                OsmanHealth osmanHealth = player.GetComponent<OsmanHealth>();
+                if (osmanHealth != null)
+                {
+                    osmanHealth.DecreaseHealth(attackDamage);
+                }
+            }
+        }
+        else if (attackType == AttackType.Ranged)
+        {
+            if (projectilePrefab != null && firePoint != null)
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                if (player != null)
+                {
+                    Vector2 direction = (player.transform.position - firePoint.position).normalized;
+                    GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+                    EnemyProjectile projScript = projectile.GetComponent<EnemyProjectile>();
+                    if (projScript != null)
+                    {
+                        projScript.Initialize(direction, projectileSpeed, attackDamage, projectileLifetime);
+                    }
+                }
             }
         }
     }

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6098587628497530063}
   - component: {fileID: 3347763355103632724}
   m_Layer: 8
-  m_Name: EnemyDemon
+  m_Name: EnemyDemon 1
   m_TagString: Demon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8388334429492171828}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.1469696, y: -5.618318, z: -0.26438594}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -216,9 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f345c7024b58d345900bebb9e928a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.2
+  movementSpeed: 0.5
   hitRange: 1
-  maxHealth: 50
+  maxHealth: 10
   animator: {fileID: 5511654048025902193}
   hitbox: {fileID: 92543246532371753}
   xpOrb: {fileID: 2165805785838558576, guid: 1902d7ec5d95df246a0f5d4d0fe559b0, type: 3}
@@ -250,18 +250,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a64739618a450449c02c31110058b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackType: 0
-  attackRange: 10
-  attackCooldown: 3
+  attackType: 1
+  attackRange: 5
+  attackCooldown: 2
   attackDamage: 5
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
   playerStats: {fileID: 0}
   attackSound: {fileID: 8300000, guid: d6195cb91af5b1db781bf8564703f1cd, type: 3}
-  projectilePrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  projectileSpeed: 10
+  projectilePrefab: {fileID: 1987004643825835704, guid: d94a4efb80b72ea42ba2588616eb098f, type: 3}
+  firePoint: {fileID: 7102909393746357391}
+  projectileSpeed: 1.5
+  projectileLifetime: 10
+  rangedAttackRange: 7
+  followRange: 15
+  keepDistance: 7
 --- !u!82 &3347763355103632724
 AudioSource:
   m_ObjectHideFlags: 0

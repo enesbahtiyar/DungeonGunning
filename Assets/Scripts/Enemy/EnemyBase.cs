@@ -111,6 +111,18 @@ public class EnemyBase : MonoBehaviour
     }
     public virtual void ChasePlayer()
     {
+        EnemyAttack enemyAttack = GetComponent<EnemyAttack>();
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        
+        if (enemyAttack != null && enemyAttack.attackType == AttackType.Ranged)
+        {
+            if (distanceToPlayer <= enemyAttack.rangedAttackRange)
+            {
+                ChangeEnemyState(EnemyState.attacking);
+                return;
+            }
+        }
+        
         if (!playerInHitRange)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
@@ -123,10 +135,20 @@ public class EnemyBase : MonoBehaviour
     }
     public virtual void AttackToPlayer()
     {
-        if (!playerInHitRange)
+        EnemyAttack enemyAttack = GetComponent<EnemyAttack>();
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        
+        if (enemyAttack != null && enemyAttack.attackType == AttackType.Ranged)
+        {
+            if (distanceToPlayer > enemyAttack.rangedAttackRange)
+            {
+                ChangeEnemyState(EnemyState.chasing);
+                return;
+            }
+        }
+        else if (!playerInHitRange)
         {
             ChangeEnemyState(EnemyState.chasing);
-
             return;
         }
 
@@ -134,7 +156,6 @@ public class EnemyBase : MonoBehaviour
         {
             animator.SetTrigger("isAttacking");
             nextAttackTime = Time.time + 1f / attackRate;
-            //Start attacl animation and fire projectile?
         }
         else
         {
