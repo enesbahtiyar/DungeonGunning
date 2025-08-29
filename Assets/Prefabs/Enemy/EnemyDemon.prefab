@@ -222,21 +222,21 @@ MonoBehaviour:
   animator: {fileID: 5511654048025902193}
   hitbox: {fileID: 92543246532371753}
   xpOrb: {fileID: 2165805785838558576, guid: 1902d7ec5d95df246a0f5d4d0fe559b0, type: 3}
-  xpDropChance: 0.5
+  xpDropChance: 0.6
   coinPrefab: {fileID: 7464848167564519705, guid: 4fde928c2d5b1d2458650e3e85afe8c1, type: 3}
-  coinDropChance: 0.513
+  coinDropChance: 0.2
   coinValue: 10
   healthOrbPrefab: {fileID: 2165805785838558576, guid: 318c2358fc776a34fa3da9f37acb0634, type: 3}
-  healthDropChance: 0.48
+  healthDropChance: 0.1
   ammoPrefab: {fileID: 2165805785838558576, guid: 6f45a0272c9bf034ca0ea3c401b62609, type: 3}
-  ammoDropChance: 0.493
+  ammoDropChance: 0.05
   xpReward: 0
   attackRate: 3
   player: {fileID: 0}
   farFromPlayer: 1
-  speedBoostDistance: 15
-  normalDistance: 15
-  speedAmount: 2
+  speedBoostDistance: 25
+  normalDistance: 5
+  speedAmount: 4
   state: 0
 --- !u!114 &6098587628497530063
 MonoBehaviour:
