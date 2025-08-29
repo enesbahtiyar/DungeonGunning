@@ -10,10 +10,11 @@ public class TimerDisplay : MonoBehaviour
     private int seconds = 0;
     private int minutes = 0;
     private bool maxTimeReached = false;
+    private bool isPaused=false;
 
     void Update()
     {
-        if (maxTimeReached) return;
+        if (maxTimeReached||isPaused) return;
 
         elapsedTime += Time.deltaTime;
 
@@ -64,5 +65,13 @@ public class TimerDisplay : MonoBehaviour
     public float GetElapsedTime()
     {
         return minutes * 60 + seconds;
+    }
+    public void StopTimer()
+    {
+        isPaused = true;
+    }
+    public void ResumeTimer()
+    {
+        isPaused = false;
     }
 }

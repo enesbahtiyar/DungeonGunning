@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Shop\ShopItem.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\MAZE\Scripts\TerrainTile.cs" />
+    <Compile Include="Assets\Scripts\Boss.cs" />
     <Compile Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyDemon.cs" />
     <Compile Include="Assets\Scripts\BackgroundScroller.cs" />

@@ -16,11 +16,13 @@ public class EnemySpawner : MonoBehaviour
         public string poolTag; 
         public float startTime;
         public float interval;
+        public bool isBoss;
         [HideInInspector] public float timer;
     }
     [SerializeField] public List<EnemySpawnSetting> spawnSettings;
 
     private bool spawningStopped = false;
+    private bool bossAlive = false;
 
     void Update()
     {
@@ -39,6 +41,10 @@ public class EnemySpawner : MonoBehaviour
             }
             return;
         }
+        if(bossAlive)
+        {
+            return;
+        }
 
         if (player == null || enemyPool.pools.Count == 0) return;
 
@@ -49,6 +55,12 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (setting.timer >= setting.interval)
                 {
+                    if (setting.isBoss)
+                    {
+                        DeactivateAllEnemies();
+                        setting.interval = 120;
+                        bossAlive = true;
+                    }
                     SpawnEnemy(setting.poolTag);
                     setting.timer = 0f;
                 }
@@ -81,5 +93,9 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
         }
+    }
+    public void BossIsDead()
+    {
+        bossAlive = false;
     }
 }

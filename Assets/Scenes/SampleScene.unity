@@ -2832,14 +2832,22 @@ MonoBehaviour:
   - poolTag: Wolf
     startTime: 5
     interval: 0.5
+    isBoss: 0
+    timer: 0
+  - poolTag: WolfBoss
+    startTime: 5
+    interval: 0
+    isBoss: 1
     timer: 0
   - poolTag: Demon
     startTime: 5
     interval: 1
+    isBoss: 0
     timer: 0
   - poolTag: EnemyDemon1
     startTime: 5
     interval: 2
+    isBoss: 0
     timer: 0
 --- !u!4 &570526925
 Transform:
@@ -2878,6 +2886,9 @@ MonoBehaviour:
   - tag: EnemyDemon1
     prefab: {fileID: 8388334429492171828, guid: 680a5e0d35d234144ab13c484bf4881a, type: 3}
     size: 100
+  - tag: WolfBoss
+    prefab: {fileID: 2611816920069350289, guid: 3d3d2123a7b5b0a4dab657641fae2e7d, type: 3}
+    size: 2
   player: {fileID: 4722497542731843826}
   parentTransform: {fileID: 1339887461}
 --- !u!114 &570526927
