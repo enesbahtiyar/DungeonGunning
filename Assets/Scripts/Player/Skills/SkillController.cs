@@ -20,12 +20,6 @@ public class SkillController : MonoBehaviour
     [SerializeField] private CoolDownHandler coolDownHandler;
 
 
-    [SerializeField] private GameObject bulletPrefab;
-    private bool ricochetActive = false;
-    [SerializeField] private float ricochetCooldownTime = 30f;
-    [SerializeField] private float ricochetDuration = 10f;
-    [SerializeField] private Image ricochetCooldownImg;
-
     void Update()
     {
 
@@ -62,18 +56,6 @@ public class SkillController : MonoBehaviour
             knifes.SetActive(true);
             knifesCooldownImg.gameObject.SetActive(true);
             coolDownHandler.StartCoolDown(knifesCooldownImg, knifesCooldownTime, () => knifesOnCooldown = false); ;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6)&&!ricochetActive)
-        {
-            ricochetActive = true;
-            OsmanBullet osmanBullet = bulletPrefab.GetComponent<OsmanBullet>();
-            osmanBullet.canRicochet= true;
-            osmanBullet.Invoke(nameof(osmanBullet.DeactiveRicochet), ricochetDuration);
-            ricochetCooldownImg.gameObject.SetActive(true);
-            coolDownHandler.StartCoolDown(ricochetCooldownImg, ricochetCooldownTime, () =>
-            {
-                ricochetCooldownImg.gameObject.SetActive(false);
-            });
         }
     }
 }

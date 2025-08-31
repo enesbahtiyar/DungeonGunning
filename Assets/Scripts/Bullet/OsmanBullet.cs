@@ -84,9 +84,5 @@ public class OsmanBullet : MonoBehaviour
 
         return nearestEnemy;
     }
-    public void DeactiveRicochet()
-    {
-           canRicochet = false;
-    }
 
 }
