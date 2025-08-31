@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_Plugins\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\Brick Texture LITE\Documentation (Brick_Materials).txt" />
     <None Include="Assets\_Plugins\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\_Plugins\TextMesh Pro\Examples &amp; Extras\Fonts\Roboto-Bold - License.txt" />
     <None Include="Assets\_Plugins\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
