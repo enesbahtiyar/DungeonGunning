@@ -1595,7 +1595,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03820f739da9d8349b9dc888340bd213, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2937,7 +2937,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03820f739da9d8349b9dc888340bd213, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3365,7 +3365,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03820f739da9d8349b9dc888340bd213, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3775,7 +3775,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03820f739da9d8349b9dc888340bd213, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7306,7 +7306,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03820f739da9d8349b9dc888340bd213, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8498,10 +8498,6 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -3
       objectReference: {fileID: 0}
-    - target: {fileID: 6237340104797968896, guid: b7dd472a59110d148b4443003b497a08, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 03820f739da9d8349b9dc888340bd213, type: 2}
     - target: {fileID: 8495428190723738899, guid: b7dd472a59110d148b4443003b497a08, type: 3}
       propertyPath: worldScrolling
       value: 
@@ -8523,10 +8519,6 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -3
       objectReference: {fileID: 0}
-    - target: {fileID: 2957089798817317318, guid: ad363f95eaf31a34198bfefa5b22721c, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 03820f739da9d8349b9dc888340bd213, type: 2}
     - target: {fileID: 6207211863366895192, guid: ad363f95eaf31a34198bfefa5b22721c, type: 3}
       propertyPath: worldScrolling
       value: 
@@ -8844,10 +8836,6 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -3
       objectReference: {fileID: 0}
-    - target: {fileID: 5208711303263159380, guid: 59ea81f90cae2f54aba3069b641ebc37, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 03820f739da9d8349b9dc888340bd213, type: 2}
     - target: {fileID: 7629935792324538087, guid: 59ea81f90cae2f54aba3069b641ebc37, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20
@@ -8905,10 +8893,6 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -3
       objectReference: {fileID: 0}
-    - target: {fileID: 3157005892317306854, guid: 3817452adb08b9f49a2a533e230a23aa, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 03820f739da9d8349b9dc888340bd213, type: 2}
     - target: {fileID: 3564778614769510479, guid: 3817452adb08b9f49a2a533e230a23aa, type: 3}
       propertyPath: worldScrolling
       value: 
@@ -9014,10 +8998,6 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -3
       objectReference: {fileID: 0}
-    - target: {fileID: 2006797237249204717, guid: 4f70865e7fd510247b8739560b7b1edc, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 03820f739da9d8349b9dc888340bd213, type: 2}
     - target: {fileID: 2286703870842530863, guid: 4f70865e7fd510247b8739560b7b1edc, type: 3}
       propertyPath: worldScrolling
       value: 
