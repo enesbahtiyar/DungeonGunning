@@ -236,7 +236,7 @@ MonoBehaviour:
   farFromPlayer: 1
   speedBoostDistance: 25
   normalDistance: 5
-  speedAmount: 4
+  speedAmount: 8
   state: 0
 --- !u!114 &6098587628497530063
 MonoBehaviour:
