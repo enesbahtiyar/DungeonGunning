@@ -30,7 +30,7 @@ public class EnemyBase : MonoBehaviour
     private bool isDead = false;
     private bool playerInHitRange;
     private float baseMovementSpeed;
-    
+
     [Header("Speed Boost")]
     public bool farFromPlayer = false;
     [SerializeField] private float speedBoostDistance = 10f;
@@ -38,7 +38,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private float speedAmount = 2f;
     private bool isSpeedBoosted = false;
     private bool playingState = false;
-    
+
     private EnemyPool enemyPool;
 
     [SerializeField] EnemyState state;
@@ -75,7 +75,7 @@ public class EnemyBase : MonoBehaviour
             //TODO: Can be OPTIMIZED with SEP(Single Entry Point)
             float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
             playerInHitRange = distanceToPlayer < hitRange;
-            
+
             if (farFromPlayer)
             {
                 HandleSpeedBoost(distanceToPlayer);
@@ -113,7 +113,7 @@ public class EnemyBase : MonoBehaviour
     {
         EnemyAttack enemyAttack = GetComponent<EnemyAttack>();
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-        
+
         if (enemyAttack != null && enemyAttack.attackType == AttackType.Ranged)
         {
             if (distanceToPlayer <= enemyAttack.rangedAttackRange)
@@ -122,7 +122,7 @@ public class EnemyBase : MonoBehaviour
                 return;
             }
         }
-        
+
         if (!playerInHitRange)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
@@ -137,7 +137,7 @@ public class EnemyBase : MonoBehaviour
     {
         EnemyAttack enemyAttack = GetComponent<EnemyAttack>();
         float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-        
+
         if (enemyAttack != null && enemyAttack.attackType == AttackType.Ranged)
         {
             if (distanceToPlayer > enemyAttack.rangedAttackRange)
@@ -156,7 +156,7 @@ public class EnemyBase : MonoBehaviour
         {
             animator.SetTrigger("isAttacking");
             nextAttackTime = Time.time + 1f / attackRate;
-            
+
             if (enemyAttack != null)
             {
                 enemyAttack.TryAttack();
@@ -167,8 +167,8 @@ public class EnemyBase : MonoBehaviour
             animator.SetTrigger("isIdle");
         }
     }
-   
-      public virtual void Die()
+
+    public virtual void Die()
     {
         if (isDead) return;
         isDead = true;
@@ -177,8 +177,8 @@ public class EnemyBase : MonoBehaviour
         animator.SetTrigger("isDead");
         Invoke("DeactivateObject", 2f);
 
-        
-        
+
+
         // 🟢 Oyuncuya direkt XP veriyoruz
         PlayerStats.Instance.GainXp(xpReward);
 
@@ -212,7 +212,7 @@ public class EnemyBase : MonoBehaviour
     {
         this.gameObject.SetActive(false);
     }
-    
+
     public virtual void ChangeEnemyState(EnemyState state)
     {
         if (this.state == state) return;
@@ -241,7 +241,7 @@ public class EnemyBase : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         movementSpeed = baseMovementSpeed;
     }
-    
+
     private void HandleSpeedBoost(float distanceToPlayer)
     {
         if (!isSpeedBoosted && distanceToPlayer > speedBoostDistance)
