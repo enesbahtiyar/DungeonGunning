@@ -70,9 +70,9 @@ MonoBehaviour:
   attackRate: 1
   player: {fileID: 0}
   farFromPlayer: 1
-  speedBoostDistance: 15
-  normalDistance: 15
-  speedAmount: 10
+  speedBoostDistance: 0
+  normalDistance: 0
+  speedAmount: 6
   state: 0
 --- !u!114 &6268812619605526941
 MonoBehaviour:
